@@ -4,12 +4,24 @@
   nixConfig = {
     extra-experimental-features = "nix-command flakes";
     extra-substituters = [
-      "https://nrdxp.cachix.org"
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org"
       "https://nix-community.cachix.org"
+      "https://fortuneteller2k.cachix.org"
+      "https://nixpkgs-wayland.cachix.org"
+      "https://helix.cachix.org"
+      "https://hyprland.cachix.org"
+      "https://nrdxp.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
+      "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4="
     ];
   };
 
@@ -33,11 +45,11 @@
     digga.url = "github:divnix/digga";
     digga.inputs.nixpkgs.follows = "nixos";
     digga.inputs.nixlib.follows = "nixos";
-    digga.inputs.home-manager.follows = "home";
+    digga.inputs.home-manager.follows = "home-manager";
     digga.inputs.deploy.follows = "deploy";
 
-    home.url = "github:nix-community/home-manager/release-22.11";
-    home.inputs.nixpkgs.follows = "nixos";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixos";
 
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-darwin-stable";
@@ -52,21 +64,57 @@
     nvfetcher.inputs.nixpkgs.follows = "nixos";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-contrib.url = "github:hyprwm/contrib";
+    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    crane = {
+      url = "github:ipetkov/crane";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    helix.url = "github:helix-editor/helix";
+    nil = {
+      url = "github:oxalica/nil";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
+
+    # Non Flakes
+    sf-mono-liga = {
+      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+      flake = false;
+    };
+
+    # my nur repository for my nixos dotfiles
+    inur = {
+      url = "github:I-Want-ToBelieve/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     digga,
     nixos,
-    home,
+    home-manager,
     nixos-hardware,
     nur,
     agenix,
     nvfetcher,
     deploy,
+    rust-overlay,
     nixpkgs,
     ...
-  } @ inputs:
+  } @ inputs: let
+    configs = import ./configs {};
+  in
     digga.lib.mkFlake
     {
       inherit self inputs;
@@ -76,7 +124,8 @@
       channels = {
         nixos = {
           imports = [(digga.lib.importOverlays ./overlays)];
-          overlays = [];
+          overlays = [
+          ];
         };
         nixpkgs-darwin-stable = {
           imports = [(digga.lib.importOverlays ./overlays)];
@@ -90,7 +139,11 @@
               // prev.lib.optionalAttrs true {})
           ];
         };
-        latest = {};
+        latest = {
+          imports = [(digga.lib.importOverlays ./overlays)];
+          overlays = [
+          ];
+        };
       };
 
       lib = import ./lib {lib = digga.lib // nixos.lib;};
@@ -102,32 +155,58 @@
             our = self.lib;
           });
         })
-
+        (final: prev: {
+          inur = inputs.inur.packages."${prev.system}";
+        })
+        (
+          final: _: let
+            inherit (final) system;
+          in
+            {
+              # Packages provided by flake inputs
+              crane-lib = inputs.crane.lib.${system};
+            }
+            // {
+              # Non Flakes
+              sf-mono-liga-src = inputs.sf-mono-liga;
+            }
+        )
         nur.overlay
-        agenix.overlay
-        nvfetcher.overlay
-
+        agenix.overlays.default
+        nvfetcher.overlays.default
+        rust-overlay.overlays.default
         (import ./pkgs)
       ];
 
       nixos = {
         hostDefaults = {
           system = "x86_64-linux";
-          channelName = "nixos";
+          channelName = "latest";
           imports = [(digga.lib.importExportableModules ./modules)];
-          modules = [
-            {lib.our = self.lib;}
-            digga.nixosModules.bootstrapIso
-            digga.nixosModules.nixConfig
-            home.nixosModules.home-manager
-            agenix.nixosModules.age
-          ];
+          modules =
+            [
+              {lib.our = self.lib;}
+              digga.nixosModules.bootstrapIso
+              digga.nixosModules.nixConfig
+              home-manager.nixosModules.home-manager
+              agenix.nixosModules.age
+              {
+                system.stateVersion = "22.11";
+                system.autoUpgrade.enable = false;
+              }
+            ]
+            ++ (
+              if configs.useDE
+              then []
+              else [inputs.hyprland.nixosModules.default]
+            );
         };
 
         imports = [(digga.lib.importHosts ./hosts/nixos)];
         hosts = {
           # set host-specific properties here
           NixOS = {};
+          k99-lite = {};
         };
         importables = rec {
           profiles =
@@ -136,7 +215,8 @@
               users = digga.lib.rakeLeaves ./users;
             };
           suites = with profiles; rec {
-            base = [core.nixos users.nixos users.root];
+            base = [core.nixos users.nixos users.root users."i.want.to.believe"];
+            misc = [network nix locale fonts];
           };
         };
       };
@@ -149,7 +229,7 @@
           modules = [
             {lib.our = self.lib;}
             digga.darwinModules.nixConfig
-            home.darwinModules.home-manager
+            home-manager.darwinModules.home-manager
             agenix.nixosModules.age
           ];
         };
@@ -173,11 +253,15 @@
 
       home = {
         imports = [(digga.lib.importExportableModules ./users/modules)];
-        modules = [];
+        modules = [inputs.hyprland.homeManagerModules.default] ++ [{home.stateVersion = "22.11";}];
         importables = rec {
           profiles = digga.lib.rakeLeaves ./users/profiles;
-          suites = with profiles; rec {
-            base = [direnv git];
+          suites = with profiles; {
+            base = [packages nix misc];
+            cli = with cli; [direnv git ssh starship helix];
+            gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio vscode zathura];
+            shells = with shells; [fish zsh];
+            desktop = with desktop; [dunst waybar windowManagers.hyprland gtk rofi swaylock];
           };
         };
         users = {
@@ -198,13 +282,22 @@
           # first steps in customizing the template.
           nixos = {suites, ...}: {
             imports = suites.base;
-
-            home.stateVersion = "22.11";
           };
           darwin = {suites, ...}: {
             imports = suites.base;
-
-            home.stateVersion = "22.11";
+          };
+          "i.want.to.believe" = {
+            suites,
+            profiles,
+            hostName,
+            ...
+          }: {
+            imports =
+              suites.base
+              ++ suites.cli
+              ++ suites.gui
+              ++ suites.shells
+              ++ suites.desktop;
           };
         }; # digga.lib.importers.rakeLeaves ./users/hm;
       };
@@ -219,5 +312,7 @@
         (digga.lib.mkHomeConfigurations self.nixosConfigurations);
 
       deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {};
+
+      outputsBuilder = channels: {formatter = channels.latest.treefmt;};
     };
 }
