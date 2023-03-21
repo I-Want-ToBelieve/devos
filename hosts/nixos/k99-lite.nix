@@ -11,13 +11,6 @@
 }: {
   imports =
     [(modulesPath + "/installer/scan/not-detected.nix")]
-    ++ suites.base
-    ++ suites.misc
-    ++ (
-      if self.configs.useDE
-      then suites.kde-x11
-      else suites.hyprland
-    )
     ++ [
       inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
       inputs.nixos-hardware.nixosModules.common-gpu-amd
@@ -208,7 +201,7 @@
     upower.enable = true;
 
     tlp = {
-      enable = true;
+      enable = false;
       settings = {
         START_CHARGE_THRESH_BAT0 = 0;
         STOP_CHARGE_THRESH_BAT0 = 80;

@@ -117,7 +117,7 @@
   in
     digga.lib.mkFlake
     {
-      inherit self inputs configs;
+      inherit self inputs;
 
       channelsConfig = {allowUnfree = true;};
 
@@ -207,6 +207,19 @@
           # set host-specific properties here
           NixOS = {};
           k99-lite = {
+            modules = [
+              ({suites, ...}: {
+                imports =
+                  suites.base
+                  ++ suites.misc
+                  ++ suites.game
+                  ++ (
+                    if configs.useDE
+                    then suites.kde-x11
+                    else suites.hyprland
+                  );
+              })
+            ];
           };
         };
         importables = rec {
@@ -217,10 +230,11 @@
             };
           suites = with profiles; rec {
             base = [core.nixos users.nixos users.root users."i.want.to.believe"];
-            kde-x11 = [display-managers.sddm];
+            kde-x11 = [display-managers.sddm desktop-environment.kde];
             kde-wayland = [display-managers.sddm];
             hyprland = [display-managers.greetd];
             misc = [network nix locale fonts];
+            game = [game.steam];
           };
         };
       };

@@ -57,11 +57,11 @@
       zip
     ];
 
-    loginShellInit = ''
-      dbus-update-activation-environment --systemd DISPLAY
-      eval $(gnome-keyring-daemon --start --daemonize --components=ssh)
-      eval $(ssh-agent)
-    '';
+    # loginShellInit = ''
+    #   dbus-update-activation-environment --systemd DISPLAY
+    #   eval $(gnome-keyring-daemon --start --daemonize --components=ssh)
+    #   eval $(ssh-agent)
+    # '';
 
     shellAliases = let
       ifSudo = lib.mkIf config.security.sudo.enable;
@@ -171,7 +171,7 @@
     udisks2.enable = true;
     printing.enable = true;
     fstrim.enable = true;
-    # v2raya.enable = true;
+    v2raya.enable = true;
 
     udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 

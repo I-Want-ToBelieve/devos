@@ -15,19 +15,18 @@
           "general.smoothScroll" = true;
         };
 
-        # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        #   adnauseam
-        #   enhanced-github
-        #   enhancer-for-youtube
-        #   octotree
-        #   refined-github
-        #   stylus
-        #   ublock-origin
-        # ];
-        extensions = [];
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          adnauseam
+          enhanced-github
+          enhancer-for-youtube
+          octotree
+          refined-github
+          stylus
+          ublock-origin
+        ];
 
-        userChrome = import ./userChrome-css.nix;
-        userContent = import ./userContent-css.nix;
+        # userChrome = import ./userChrome-css.nix;
+        # userContent = import ./userContent-css.nix;
 
         extraConfig = ''
           user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
