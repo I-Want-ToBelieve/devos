@@ -70,6 +70,10 @@
     hyprland-contrib.url = "github:hyprwm/contrib";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
 
+    plasma-manager.url = "github:pjones/plasma-manager";
+    plasma-manager.inputs.nixpkgs.follows = "nixos";
+    plasma-manager.inputs.home-manager.follows = "home-manager";
+
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -189,6 +193,7 @@
               digga.nixosModules.bootstrapIso
               digga.nixosModules.nixConfig
               home-manager.nixosModules.home-manager
+
               agenix.nixosModules.age
               {
                 system.stateVersion = "22.11";
@@ -212,7 +217,7 @@
                 imports =
                   suites.base
                   ++ suites.misc
-                  ++ suites.game
+                  ++ suites.games
                   ++ (
                     if configs.useDE
                     then suites.kde-x11
@@ -234,7 +239,7 @@
             kde-wayland = [display-managers.sddm];
             hyprland = [display-managers.greetd];
             misc = [network nix locale fonts];
-            game = [game.steam];
+            games = [game.steam];
           };
         };
       };
@@ -271,7 +276,7 @@
 
       home = {
         imports = [(digga.lib.importExportableModules ./users/modules)];
-        modules = [inputs.hyprland.homeManagerModules.default] ++ [{home.stateVersion = "22.11";}];
+        modules = [inputs.hyprland.homeManagerModules.default inputs.plasma-manager.homeManagerModules.plasma-manager] ++ [{home.stateVersion = "22.11";}];
         importables = rec {
           profiles = digga.lib.rakeLeaves ./users/profiles;
           suites = with profiles; {
@@ -279,9 +284,9 @@
             cli = with cli; [direnv git ssh starship helix];
             gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio vscode zathura];
             shells = with shells; [fish zsh];
-            hyprland = with desktop; [dunst waybar window-managers.hyprland gtk rofi swaylock];
-            kde-x11 = [];
-            kde-wayland = [];
+            hyprland = with desktop; [dunst waybar window-managers.hyprland gtk rofi swaylock mime];
+            kde-x11 = [desktop.plasma];
+            kde-wayland = [desktop.plasma];
           };
         };
         users = {
