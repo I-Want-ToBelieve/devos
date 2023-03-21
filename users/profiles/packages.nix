@@ -60,7 +60,6 @@ in {
     pavucontrol
     pulseaudio
     python3
-    ranger
     rsync
     todo
     thefuck

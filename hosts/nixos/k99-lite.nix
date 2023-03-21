@@ -5,6 +5,7 @@
   pkgs,
   config,
   lib,
+  self,
   modulesPath,
   ...
 }: {
@@ -12,6 +13,11 @@
     [(modulesPath + "/installer/scan/not-detected.nix")]
     ++ suites.base
     ++ suites.misc
+    ++ (
+      if self.configs.useDE
+      then suites.kde-x11
+      else suites.hyprland
+    )
     ++ [
       inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
       inputs.nixos-hardware.nixosModules.common-gpu-amd
@@ -209,26 +215,8 @@
       };
     };
 
-    greetd = {
-      enable = true;
-      settings = rec {
-        initial_session = {
-          command = "Hyprland";
-          user = "i.want.to.believe";
-        };
-        default_session = initial_session;
-      };
-    };
-
     xserver.videoDrivers = ["amdgpu"];
-    # add hyprland to display manager sessions
-    xserver.displayManager.sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
   };
-
-  # selectable options
-  environment.etc."greetd/environments".text = ''
-    Hyprland
-  '';
 
   xdg.portal = {
     enable = true;
@@ -236,14 +224,6 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
     ];
-  };
-
-  security = {
-    pam.services.swaylock = {
-      text = ''
-        auth include login
-      '';
-    };
   };
 
   environment = {
@@ -260,11 +240,5 @@
       virt-manager
       vulkan-tools
     ];
-
-    variables = {
-      NIXOS_OZONE_WL = "1";
-      WLR_BACKEND = "vulkan";
-      GDK_BACKEND = "wayland";
-    };
   };
 }

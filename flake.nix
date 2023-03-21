@@ -117,7 +117,7 @@
   in
     digga.lib.mkFlake
     {
-      inherit self inputs;
+      inherit self inputs configs;
 
       channelsConfig = {allowUnfree = true;};
 
@@ -206,7 +206,8 @@
         hosts = {
           # set host-specific properties here
           NixOS = {};
-          k99-lite = {};
+          k99-lite = {
+          };
         };
         importables = rec {
           profiles =
@@ -216,6 +217,9 @@
             };
           suites = with profiles; rec {
             base = [core.nixos users.nixos users.root users."i.want.to.believe"];
+            kde-x11 = [display-managers.sddm];
+            kde-wayland = [display-managers.sddm];
+            hyprland = [display-managers.greetd];
             misc = [network nix locale fonts];
           };
         };
@@ -261,7 +265,9 @@
             cli = with cli; [direnv git ssh starship helix];
             gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio vscode zathura];
             shells = with shells; [fish zsh];
-            desktop = with desktop; [dunst waybar windowManagers.hyprland gtk rofi swaylock];
+            hyprland = with desktop; [dunst waybar window-managers.hyprland gtk rofi swaylock];
+            kde-x11 = [];
+            kde-wayland = [];
           };
         };
         users = {
@@ -297,7 +303,11 @@
               ++ suites.cli
               ++ suites.gui
               ++ suites.shells
-              ++ suites.desktop;
+              ++ (
+                if configs.useDE
+                then suites.kde-x11
+                else suites.hyprland
+              );
           };
         }; # digga.lib.importers.rakeLeaves ./users/hm;
       };
