@@ -22,6 +22,24 @@ with lib; {
         executable = true;
         text = import ./bin/preview.nix {inherit pkgs;};
       };
+      ".local/bin/autostart-kde.sh" = {
+        # Preview script for fzf tab
+        executable = true;
+        text = import ./bin/autostart-kde.nix {inherit pkgs;};
+      };
+
+      ".config/autostart/autostart-kde.sh.desktop" = {
+        executable = true;
+        text = ''
+          [Desktop Entry]
+          Exec=/home/i.want.to.believe/.local/bin/autostart-kde.sh
+          Icon=dialog-scripts
+          Name=autostart-kde.sh
+          Path=
+          Type=Application
+          X-KDE-AutostartScript=true
+        '';
+      };
     };
   };
 

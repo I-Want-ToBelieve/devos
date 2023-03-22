@@ -25,6 +25,7 @@
       ls = "exa --sort type";
       l = "ls -la";
       lt = "ls --tree";
+      ra = "ranger";
     };
     functions = {
       c = {

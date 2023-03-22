@@ -285,7 +285,7 @@
             gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio vscode zathura];
             shells = with shells; [fish zsh];
             hyprland = with desktop; [dunst waybar window-managers.hyprland gtk rofi swaylock mime];
-            kde-x11 = [desktop.plasma];
+            kde-x11 = [desktop.plasma desktop.sxhkd];
             kde-wayland = [desktop.plasma];
           };
         };
