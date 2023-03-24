@@ -283,7 +283,7 @@
             base = [packages nix misc];
             cli = with cli; [direnv git ssh starship helix];
             gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio vscode zathura copyq];
-            shells = with shells; [fish zsh];
+            shells = with shells; [fish zsh nu];
             hyprland = with desktop; [dunst waybar window-managers.hyprland gtk rofi swaylock mime];
             kde-x11 = [desktop.plasma desktop.sxhkd desktop.bismuth desktop.kvantum];
             kde-wayland = [desktop.plasma desktop.bismuth];
