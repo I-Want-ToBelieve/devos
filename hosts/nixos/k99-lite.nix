@@ -170,6 +170,11 @@
 
     docker = {
       enable = true;
+      daemon = {
+        settings = {
+          registry-mirrors = ["https://registry.docker-cn.com" https://hub-mirror.c.163.com];
+        };
+      };
     };
 
     podman = {

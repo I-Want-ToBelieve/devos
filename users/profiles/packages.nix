@@ -25,7 +25,6 @@ in {
     btop
     bottom
     cairo
-    copyq
     cached-nix-shell
     cinnamon.nemo
     coreutils
@@ -56,6 +55,7 @@ in {
     netease-cloud-music-gtk
     nodejs
     pamixer
+    piper
     psmisc
     pavucontrol
     pulseaudio

@@ -16,6 +16,9 @@
         noto-fonts-emoji
         sf-mono-liga
         twemoji-color-font
+        wqy_microhei
+        lxgw-wenkai
+        wqy_zenhei
         ;
     };
 

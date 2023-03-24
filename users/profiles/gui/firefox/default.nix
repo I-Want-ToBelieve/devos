@@ -6,8 +6,6 @@
   programs.firefox = {
     enable = true;
 
-    package = pkgs.firefox-wayland;
-
     profiles = {
       "i.want.to.believe" = {
         id = 0;
@@ -29,6 +27,7 @@
         # userContent = import ./userContent-css.nix;
 
         extraConfig = ''
+          user_pref("browser.tabs.inTitlebar", 0);
           user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
           user_pref("full-screen-api.ignore-widgets", true);
           user_pref("media.ffmpeg.vaapi.enabled", true);

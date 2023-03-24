@@ -5,9 +5,6 @@
 }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.override {
-      commandLineArgs = "";
-    };
     extensions = with pkgs.vscode-extensions; [
       arrterian.nix-env-selector
       bbenoist.nix
@@ -46,13 +43,13 @@
       "workbench.fontAliasing" = "antialiased";
       "files.trimTrailingWhitespace" = true;
       "terminal.integrated.fontFamily" = "monospace";
-      "window.titleBarStyle" = "custom";
+      "window.titleBarStyle" = "native";
       "terminal.integrated.automationShell.linux" = "nix-shell";
       "terminal.integrated.defaultProfile.linux" = "zsh";
       "terminal.integrated.cursorBlinking" = true;
       "terminal.integrated.enableBell" = false;
       "editor.formatOnPaste" = true;
-      "editor.formatOnSave" = true;
+      "editor.formatOnSave" = false;
       "editor.formatOnType" = false;
       "editor.minimap.enabled" = false;
       "editor.minimap.renderCharacters" = false;
