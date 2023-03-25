@@ -9,61 +9,29 @@
   modulesPath,
   ...
 }: {
-  imports =
-    [(modulesPath + "/installer/scan/not-detected.nix")]
-    ++ [
-      inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
-      inputs.nixos-hardware.nixosModules.common-gpu-amd
-    ];
-
-  # amd gpu
-  boot.blacklistedKernelModules = ["nouveau" "nvidia"];
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
-  ];
+  imports = [];
 
   hardware = {
     opengl = {
       enable = true;
-      extraPackages = with pkgs;
-        pkgs.lib.mkForce [
-          (vaapiIntel.override {enableHybridCodec = true;})
-          vaapiVdpau
-          libvdpau-va-gl
-          intel-media-driver
-        ];
     };
 
-    amdgpu = {
-      amdvlk = true;
-      opencl = true;
-    };
-
-    bluetooth = {
-      enable = true;
-      package = pkgs.bluez;
-    };
+    # bluetooth = {
+    #   enable = true;
+    #   package = pkgs.bluez;
+    # };
 
     enableRedistributableFirmware = true;
-    pulseaudio.enable = false;
+    # pulseaudio.enable = false;
   };
 
   boot = {
     kernelModules = [
-      "kvm-intel" # If using an AMD processor, use `kvm-amd`
-      "vfio_pci"
-      "vfio_iommu_type1"
-      "vfio_virqfd"
-      "vfio"
     ];
-    extraModprobeConfig = ''
-      options kvm_intel nested=1
-      options kvm_intel emulate_invalid_guest_state=0
-      options kvm ignore_msrs=1
-    '';
+    extraModprobeConfig = '''';
     extraModulePackages = [];
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["intel_iommu=on" "iommu=pt"];
+    kernelParams = [];
 
     supportedFilesystems = ["btrfs"];
 
@@ -178,34 +146,9 @@
 
   virtualisation = {
     spiceUSBRedirection.enable = true;
-
-    docker = {
-      enable = true;
-      daemon = {
-        settings = {
-          registry-mirrors = ["https://registry.docker-cn.com" https://hub-mirror.c.163.com];
-        };
-      };
-    };
-
-    podman = {
-      enable = true;
-      extraPackages = with pkgs; [
-        skopeo
-        conmon
-        runc
-      ];
-    };
-
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        ovmf = {
-          enable = true;
-          packages = with pkgs; [OVMFFull.fd];
-        };
-        swtpm.enable = true;
+    vmware = {
+      guest = {
+        enable = true;
       };
     };
   };
@@ -224,7 +167,7 @@
       };
     };
 
-    xserver.videoDrivers = ["amdgpu"];
+    # xserver.videoDrivers = ["amdgpu"];
   };
 
   xdg.portal = {
@@ -239,15 +182,10 @@
     systemPackages = with pkgs; [
       acpi
       brightnessctl
-      docker-client
-      docker-compose
-      docker-credential-helpers
       libva-utils
       ocl-icd
       qt5.qtwayland
       qt5ct
-      virt-manager
-      vulkan-tools
     ];
   };
 }

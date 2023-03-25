@@ -226,6 +226,21 @@
               })
             ];
           };
+          k99-lite-windows-vmware = {
+            modules = [
+              ({suites, ...}: {
+                imports =
+                  suites.base
+                  ++ suites.misc
+                  ++ suites.games
+                  ++ (
+                    if configs.useDE
+                    then suites.kde-x11
+                    else suites.hyprland
+                  );
+              })
+            ];
+          };
         };
         importables = rec {
           profiles =
