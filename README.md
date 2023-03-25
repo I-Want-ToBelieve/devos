@@ -87,14 +87,14 @@ NixOS / Home-Manager / Flake
    ```bash
    $ cryptsetup luksFormat /dev/nvme0n1p2
    $ cryptsetup config /dev/nvme0n1p2 --label cryptroot
-   $ cryptsetup luksOpen /dev/nvme0n1p2 enc-pv
+   $ cryptsetup luksOpen /dev/nvme0n1p2 encrypted
    ```
 
    We create two logical volumes, a 24GB swap parition and the rest will be our root filesystem
 
    ```bash
-   $ pvcreate /dev/mapper/enc-pv
-   $ vgcreate vg /dev/mapper/enc-pv
+   $ pvcreate /dev/mapper/encrypted
+   $ vgcreate vg /dev/mapper/encrypted
    $ lvcreate -L 24G -n swap vg
    $ lvcreate -l '100%FREE' -n root vg
    ```
