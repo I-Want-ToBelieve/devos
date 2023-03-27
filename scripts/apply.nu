@@ -18,8 +18,9 @@ $globals.snapshot_needed | each { |it|
       let target_full_path = $"($target)/($source_basename)"
 
       mkdir $source_dirname
+      mkdir $target_full_path
 
-      rsync -av $target_full_path $source_dirname
+      rsync -av $target_full_path ($source_dirname | path expand)
   }
 }
 

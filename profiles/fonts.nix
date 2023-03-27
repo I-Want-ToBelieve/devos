@@ -20,6 +20,10 @@
         lxgw-wenkai
         wqy_zenhei
         ;
+      inherit
+        (pkgs.inur)
+        ttf-ubuntu-mono-ligaturized
+        ;
     };
 
     fontconfig = {

@@ -13,6 +13,7 @@ in {
   home-manager.users = {"i.want.to.believe" = hmUsers."i.want.to.believe";};
 
   # age.secrets.i.want.to.believe.file = "${self}/secrets/i.want.to.believe.age";
+  programs.fish.enable = true;
 
   users.mutableUsers = true;
   users.users."i.want.to.believe" = {

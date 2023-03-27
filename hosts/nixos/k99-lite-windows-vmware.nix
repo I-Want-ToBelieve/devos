@@ -11,6 +11,12 @@
 }: {
   imports = [];
 
+  home-manager.users."i.want.to.believe".programs.plasma = {
+    files = {
+      "kxkbrc"."Layout"."Options" = lib.mkForce "terminate:ctrl_alt_bksp";
+    };
+  };
+
   hardware = {
     opengl = {
       enable = true;
