@@ -22,13 +22,13 @@
       enable = true;
     };
 
-    # bluetooth = {
-    #   enable = true;
-    #   package = pkgs.bluez;
-    # };
+    bluetooth = {
+      enable = true;
+      package = pkgs.bluez;
+    };
 
     enableRedistributableFirmware = true;
-    # pulseaudio.enable = false;
+    pulseaudio.enable = false;
   };
 
   boot = {
