@@ -5,10 +5,10 @@
 }: {
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-    ];
+    # extensions = with pkgs.vscode-extensions; [
+    # ];
 
-    userSettings = {
-    };
+    # userSettings = {
+    # };
   };
 }

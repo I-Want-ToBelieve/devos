@@ -6,5 +6,9 @@
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
 
   # @see https://github.com/Prayag2/kde_controlcentre/issues/6#issuecomment-1271939571
-  environment.systemPackages = with pkgs; [kdeplasma-addons];
+  environment.systemPackages = with pkgs; [libsForQt5.kdeplasma-addons];
+
+  programs.kdeconnect = {
+    enable = true;
+  };
 }
