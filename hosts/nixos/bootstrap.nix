@@ -1,4 +1,8 @@
-{profiles, ...}: {
+{
+  profiles,
+  lib,
+  ...
+}: {
   imports = [
     # profiles.networking
     profiles.core.nixos

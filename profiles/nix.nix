@@ -40,10 +40,10 @@
     registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
 
     # set the path for channels compat
-    nixPath = [
-      "nixpkgs=/etc/nix/flake-channels/nixpkgs"
-      "home-manager=/etc/nix/flake-channels/home-manager"
-    ];
+    # nixPath = [
+    #   "nixpkgs=/etc/nix/flake-channels/nixpkgs"
+    #   "home-manager=/etc/nix/flake-channels/home-manager"
+    # ];
 
     # Free up to 1GiB whenever there is less than 100MiB left.
     extraOptions = ''
