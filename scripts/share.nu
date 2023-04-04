@@ -11,6 +11,7 @@ export def get_globals [] {
                 target: $"./sync/(hostname)"
             }
         ],
+        original: "./sync/k99-lite",
     }
 }
 

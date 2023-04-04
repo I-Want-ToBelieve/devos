@@ -5,7 +5,7 @@
 let need_loop = false
 let current_scripts_path = $env.FILE_PWD
 # pausetime between iterations
-let sleeptime = 900min
+let sleeptime = 90min
 # location of wallpapers folder
 let location = ($current_scripts_path | path dirname | path join "arts/wallpapers")
 # ////////////////////////////////////////

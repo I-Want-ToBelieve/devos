@@ -6,9 +6,16 @@ use share.nu
 let globals = (share get_globals)
 
 
+
+
 $globals.snapshot_needed | each { |it|
   let sources = $it.sources
   let target = $it.target
+
+  if (not ($target | path exists)) {
+    mkdir $target
+    copy -r $"($globals.original)/*" $target
+  }
 
   $sources | par-each { |it|
       let source_path = ($it | path expand)
