@@ -1,4 +1,5 @@
 {pkgs, ...}: ''
+  #! /usr/bin/env bash
   #> Syntax: bash
 
   # Send to host

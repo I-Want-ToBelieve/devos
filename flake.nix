@@ -101,6 +101,10 @@
       url = "github:I-Want-ToBelieve/nur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Stylix is a NixOS module which applies the same color scheme, font and wallpaper to a wide range of applications and desktop environments. It also exports utilities for you to use the theme in custom parts of your configuration.
+    # https://danth.github.io/stylix/installation.html
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -115,6 +119,7 @@
     deploy,
     rust-overlay,
     nixpkgs,
+    stylix,
     ...
   } @ inputs: let
     configs = import ./configs {};
@@ -194,6 +199,8 @@
               digga.nixosModules.nixConfig
               home-manager.nixosModules.home-manager
 
+              stylix.nixosModules.stylix
+
               agenix.nixosModules.age
               {
                 system.stateVersion = "22.11";
@@ -253,7 +260,7 @@
             kde-x11 = [display-managers.sddm desktop-environment.kde];
             kde-wayland = [display-managers.sddm];
             hyprland = [display-managers.greetd];
-            misc = [network nix locale fonts];
+            misc = [network nix locale fonts stylixs];
             games = [game.steam];
           };
         };
@@ -268,6 +275,9 @@
             {lib.our = self.lib;}
             digga.darwinModules.nixConfig
             home-manager.darwinModules.home-manager
+
+            stylix.darwinModules.stylix
+
             agenix.nixosModules.age
           ];
         };
@@ -295,11 +305,11 @@
         importables = rec {
           profiles = digga.lib.rakeLeaves ./users/profiles;
           suites = with profiles; {
-            base = [packages nix misc];
+            base = [packages nix misc stylixs];
             cli = with cli; [direnv git ssh starship helix];
             gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio vscode zathura copyq];
             shells = with shells; [fish zsh nu];
-            hyprland = with desktop; [dunst waybar window-managers.hyprland gtk rofi swaylock mime];
+            hyprland = with desktop; [dunst waybar window-managers.hyprland rofi swaylock mime];
             kde-x11 = [desktop.plasma desktop.sxhkd desktop.bismuth desktop.kvantum];
             kde-wayland = [desktop.plasma desktop.bismuth];
           };

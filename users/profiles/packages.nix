@@ -24,6 +24,7 @@ in {
     blueberry
     btop
     bottom
+    clippy
     cairo
     cached-nix-shell
     cinnamon.nemo
@@ -107,16 +108,6 @@ in {
 
     bat = {
       enable = true;
-      themes = {
-        Catppuccin-macchiato = builtins.readFile (pkgs.fetchFromGitHub {
-            owner = "catppuccin";
-            repo = "bat";
-            rev = "00bd462e8fab5f74490335dcf881ebe7784d23fa";
-            sha256 = "yzn+1IXxQaKcCK7fBdjtVohns0kbN+gcqbWVE4Bx7G8=";
-          }
-          + "/Catppuccin-macchiato.tmTheme");
-      };
-      config.theme = "Catppuccin-macchiato";
     };
   };
 }
