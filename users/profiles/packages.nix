@@ -47,6 +47,7 @@ in {
     keepassxc
     killall
     krabby
+    lazygit
     libappindicator
     libnotify
     libsecret
@@ -54,6 +55,7 @@ in {
     microsoft-edge
     mpv-unwrapped
     netease-cloud-music-gtk
+    nil
     nodejs
     pamixer
     piper

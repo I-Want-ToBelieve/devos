@@ -17,7 +17,6 @@
 
     inputMethod = {
       enabled = "fcitx5";
-      fcitx5.enableRimeData = true;
       fcitx5.addons = with pkgs;
       with inur; [
         fcitx5-rime
