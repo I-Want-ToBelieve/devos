@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   # https://danth.github.io/stylix/configuration.html
   stylix.image = pkgs.fetchurl rec {
     name = "wallpaper-${sha256}.png";
@@ -14,17 +9,17 @@
   # stylix.polarity = "dark";
 
   # @see https://github.com/tinted-theming/base16-schemes
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin.yaml";
 
   stylix.fonts = {
     serif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Serif";
+      package = pkgs.inur.ttf-ubuntu-mono-ligaturized;
+      name = "Ubuntu Mono Ligaturized";
     };
 
     sansSerif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans";
+      package = pkgs.inur.ttf-ubuntu-mono-ligaturized;
+      name = "Ubuntu Mono Ligaturized";
     };
 
     monospace = {

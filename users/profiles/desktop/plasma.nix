@@ -921,7 +921,7 @@
       "kxkbrc"."Layout"."Options" = "terminate:ctrl_alt_bksp,caps:swapescape";
       "kxkbrc"."Layout"."ResetOldOptions" = true;
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
-      "plasmanotifyrc"."Notifications"."PopupPosition" = "BottomRight";
+      "plasmanotifyrc"."Notifications"."PopupPosition" = "TopRight";
       "systemsettingsrc"."KFileDialog Settings"."detailViewIconSize" = 16;
     };
   };
