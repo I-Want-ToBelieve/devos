@@ -239,7 +239,6 @@
                 imports =
                   suites.base
                   ++ suites.misc
-                  ++ suites.games
                   ++ (
                     if configs.useDE
                     then suites.kde-x11
@@ -261,7 +260,7 @@
             kde-wayland = [display-managers.sddm];
             hyprland = [display-managers.greetd];
             misc = [network nix locale fonts stylixs];
-            games = [game.steam];
+            games = [game.steam game.uudeck];
           };
         };
       };

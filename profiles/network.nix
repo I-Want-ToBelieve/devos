@@ -12,8 +12,8 @@
     };
 
     firewall = {
-      enable = true;
-      allowPing = false;
+      enable = false;
+      allowPing = true;
       logReversePathDrops = true;
     };
   };
