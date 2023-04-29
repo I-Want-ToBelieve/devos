@@ -4,7 +4,7 @@
       "inputs": {
         "darwin": "darwin",
         "nixpkgs": [
-          "nixos"
+          "latest"
         ]
       },
       "locked": {
@@ -47,7 +47,7 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "nixpkgs"
+          "latest"
         ],
         "rust-overlay": "rust-overlay"
       },
@@ -148,7 +148,7 @@
       "inputs": {
         "flake-compat": "flake-compat_2",
         "nixpkgs": [
-          "nixos"
+          "latest"
         ],
         "utils": "utils"
       },
@@ -202,10 +202,10 @@
           "home-manager"
         ],
         "nixlib": [
-          "nixos"
+          "latest"
         ],
         "nixpkgs": [
-          "nixos"
+          "latest"
         ],
         "nixpkgs-unstable": "nixpkgs-unstable"
       },
@@ -653,7 +653,7 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "nixos"
+          "latest"
         ]
       },
       "locked": {
@@ -776,7 +776,7 @@
     "inur": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "latest"
         ]
       },
       "locked": {
@@ -876,9 +876,11 @@
       "inputs": {
         "flake-utils": "flake-utils_5",
         "nixpkgs": [
-          "nixpkgs"
+          "latest"
         ],
-        "rust-overlay": "rust-overlay_3"
+        "rust-overlay": [
+          "rust-overlay"
+        ]
       },
       "locked": {
         "lastModified": 1682748903,
@@ -1188,7 +1190,7 @@
         "flake-compat": "flake-compat_7",
         "flake-utils": "flake-utils_7",
         "nixpkgs": [
-          "nixos"
+          "latest"
         ]
       },
       "locked": {
@@ -1251,7 +1253,7 @@
           "home-manager"
         ],
         "nixpkgs": [
-          "nixos"
+          "latest"
         ]
       },
       "locked": {
@@ -1291,7 +1293,7 @@
         "nur": "nur",
         "nvfetcher": "nvfetcher",
         "plasma-manager": "plasma-manager",
-        "rust-overlay": "rust-overlay_4",
+        "rust-overlay": "rust-overlay_3",
         "sf-mono-liga": "sf-mono-liga",
         "stylix": "stylix",
         "xdg-portal-hyprland": "xdg-portal-hyprland"
@@ -1346,34 +1348,9 @@
     },
     "rust-overlay_3": {
       "inputs": {
-        "flake-utils": [
-          "nil",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nil",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1682043560,
-        "narHash": "sha256-ZsF4Yee9pQbvLtwSVGgYux+az4yFSLXrxPyGHm3ptJM=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "48037a6f8faeee138ede96bf607bc95c9dab9aec",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "rust-overlay_4": {
-      "inputs": {
         "flake-utils": "flake-utils_8",
         "nixpkgs": [
-          "nixpkgs"
+          "latest"
         ]
       },
       "locked": {
