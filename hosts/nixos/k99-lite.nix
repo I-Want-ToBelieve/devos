@@ -65,7 +65,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = ["intel_iommu=on" "iommu=pt"];
 
-    supportedFilesystems = ["btrfs"];
+    supportedFilesystems = ["btrfs" "ntfs"];
 
     initrd = {
       availableKernelModules =

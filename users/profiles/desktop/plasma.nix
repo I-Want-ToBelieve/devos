@@ -883,6 +883,7 @@
       "kwinrc"."Effect-wobblywindows"."MoveFactor" = 20;
       "kwinrc"."Effect-wobblywindows"."Stiffness" = 3;
       "kwinrc"."Effect-wobblywindows"."WobblynessLevel" = 3;
+      "kwinrc"."ModifierOnlyShortcuts"."Meta" = "";
       "kwinrc"."Plugins"."activatelattelaunchermenuEnabled" = true;
       "kwinrc"."Plugins"."bismuthEnabled" = true;
       "kwinrc"."Plugins"."blurEnabled" = true;
@@ -892,8 +893,9 @@
       "kwinrc"."Plugins"."lattewindowcolorsEnabled" = true;
       "kwinrc"."Plugins"."magiclampEnabled" = true;
       "kwinrc"."Plugins"."wobblywindowsEnabled" = true;
+      "kwinrc"."Script-bismuth"."floatingClass" = "steam_app.*";
       "kwinrc"."Script-bismuth"."ignoreClass" = "yakuake,spectacle,Conky,zoom,tdrop_terminal,copyq,Steam";
-      "kwinrc"."Script-bismuth"."ignoreTitle" = "Steam";
+      "kwinrc"."Script-bismuth"."ignoreTitle" = "Steam,Warframe";
       "kwinrc"."Script-bismuth"."newWindowAsMaster" = true;
       "kwinrc"."Script-bismuth"."screenGapBottom" = 20;
       "kwinrc"."Script-bismuth"."screenGapLeft" = 20;
@@ -922,6 +924,7 @@
       "kxkbrc"."Layout"."ResetOldOptions" = true;
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
       "plasmanotifyrc"."Notifications"."PopupPosition" = "TopRight";
+      "plasmarc"."Wallpapers"."usersWallpapers" = "//home/i.want.to.believe/git.workspaces/dotfiles.workspaces/devos/arts/wallpapers/catppuccin.png";
       "systemsettingsrc"."KFileDialog Settings"."detailViewIconSize" = 16;
     };
   };
