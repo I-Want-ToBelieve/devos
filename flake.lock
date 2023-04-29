@@ -700,11 +700,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1682786504,
-        "narHash": "sha256-hrzO6Emkd/seq5IwPyPicX6yh5X50Vlv+vJmXZsGtpw=",
+        "lastModified": 1682807949,
+        "narHash": "sha256-pOcvwmBUQ2jpQFo0S3ImNLeO6KKcXFDpmgyGmLtnzmo=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "5c3684d0cce9b22364afd3515b9b42fb95417d84",
+        "rev": "fdb772832f8804ec986a08c3489252c36356e954",
         "type": "github"
       },
       "original": {
@@ -878,9 +878,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "rust-overlay": [
-          "rust-overlay"
-        ]
+        "rust-overlay": "rust-overlay_3"
       },
       "locked": {
         "lastModified": 1682748903,
@@ -1293,7 +1291,7 @@
         "nur": "nur",
         "nvfetcher": "nvfetcher",
         "plasma-manager": "plasma-manager",
-        "rust-overlay": "rust-overlay_3",
+        "rust-overlay": "rust-overlay_4",
         "sf-mono-liga": "sf-mono-liga",
         "stylix": "stylix",
         "xdg-portal-hyprland": "xdg-portal-hyprland"
@@ -1347,6 +1345,31 @@
       }
     },
     "rust-overlay_3": {
+      "inputs": {
+        "flake-utils": [
+          "nil",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nil",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1682043560,
+        "narHash": "sha256-ZsF4Yee9pQbvLtwSVGgYux+az4yFSLXrxPyGHm3ptJM=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "48037a6f8faeee138ede96bf607bc95c9dab9aec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_4": {
       "inputs": {
         "flake-utils": "flake-utils_8",
         "nixpkgs": [
