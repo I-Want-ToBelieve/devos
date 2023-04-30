@@ -780,11 +780,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1682814909,
-        "narHash": "sha256-WkeNH/yeWt9q9Jx5dUoVR2hfy2+rHHsqm6ueRbxW9k8=",
+        "lastModified": 1682815145,
+        "narHash": "sha256-sKHT3tku9rz47DoGubw6827jt0XlBWsjafy6UkPEHZE=",
         "owner": "I-Want-ToBelieve",
         "repo": "nur",
-        "rev": "85360dfe30f97449f6c21a673c8774ac40850201",
+        "rev": "b4714e3d1ca21b30ee82bc2fd5cf4c08050ccb66",
         "type": "github"
       },
       "original": {
