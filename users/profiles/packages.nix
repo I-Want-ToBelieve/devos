@@ -52,6 +52,8 @@ in {
     libnotify
     libsecret
     # libreoffice-fresh
+    leagueoflegends
+    lutris
     microsoft-edge
     mpv-unwrapped
     netease-cloud-music-gtk
@@ -68,6 +70,9 @@ in {
     thefuck
     trash-cli
     util-linux
+    wineWowPackages.fonts
+    wineWowPackages.unstableFull
+    winetricks
     wirelesstools
     xarchiver
     xclip

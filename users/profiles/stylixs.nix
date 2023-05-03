@@ -5,4 +5,5 @@
   stylix.targets.waybar.enable = false;
   stylix.targets.swaylock.enable = false;
   stylix.targets.vim.enable = false;
+  stylix.targets.gtk.enable = false;
 }

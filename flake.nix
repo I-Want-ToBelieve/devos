@@ -42,26 +42,26 @@
     # failures on Linux systems.
     nixpkgs-darwin-stable.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
 
-    digga.url = "github:divnix/digga";
-    digga.inputs.nixpkgs.follows = "nixos";
-    digga.inputs.nixlib.follows = "nixos";
-    digga.inputs.home-manager.follows = "home-manager";
-    digga.inputs.deploy.follows = "deploy";
+    deploy.url = "github:serokell/deploy-rs";
+    deploy.inputs.nixpkgs.follows = "latest";
 
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixos";
+    home-manager.inputs.nixpkgs.follows = "latest";
+
+    digga.url = "github:divnix/digga";
+    digga.inputs.nixpkgs.follows = "latest";
+    digga.inputs.nixlib.follows = "latest";
+    digga.inputs.home-manager.follows = "home-manager";
+    digga.inputs.deploy.follows = "deploy";
 
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-darwin-stable";
 
-    deploy.url = "github:serokell/deploy-rs";
-    deploy.inputs.nixpkgs.follows = "nixos";
-
     agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixos";
+    agenix.inputs.nixpkgs.follows = "latest";
 
     nvfetcher.url = "github:berberman/nvfetcher";
-    nvfetcher.inputs.nixpkgs.follows = "nixos";
+    nvfetcher.inputs.nixpkgs.follows = "latest";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -71,22 +71,23 @@
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
 
     plasma-manager.url = "github:pjones/plasma-manager";
-    plasma-manager.inputs.nixpkgs.follows = "nixos";
+    plasma-manager.inputs.nixpkgs.follows = "latest";
     plasma-manager.inputs.home-manager.follows = "home-manager";
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "latest";
     };
     crane = {
       url = "github:ipetkov/crane";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "latest";
     };
 
     helix.url = "github:helix-editor/helix";
+
     nil = {
       url = "github:oxalica/nil";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "latest";
       inputs.rust-overlay.follows = "rust-overlay";
     };
 
@@ -99,7 +100,7 @@
     # my nur repository for my nixos dotfiles
     inur = {
       url = "github:I-Want-ToBelieve/nur";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "latest";
     };
 
     # Stylix is a NixOS module which applies the same color scheme, font and wallpaper to a wide range of applications and desktop environments. It also exports utilities for you to use the theme in custom parts of your configuration.

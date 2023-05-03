@@ -15,6 +15,13 @@
       enable = false;
       allowPing = true;
       logReversePathDrops = true;
+      allowedUDPPortRanges = [
+        # warframe
+        {
+          from = 4990;
+          to = 4995;
+        }
+      ];
     };
   };
 
