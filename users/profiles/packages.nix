@@ -58,6 +58,13 @@ in {
       netease-cloud-music-gtk
       nil
       nodejs
+      (obinskit.overrideAttrs (finalAttrs: previousAttrs: rec {
+        version = "1.2.11";
+        src = fetchurl {
+          url = "https://github.com/I-Want-ToBelieve/nur/raw/master/pkgs/obinskit/ObinsKit_${version}_x64.tar.gz";
+          sha256 = "1kcn41wmwcx6q70spa9a1qh7wfrj1sk4v4i58lbnf9kc6vasw41a";
+        };
+      }))
       pamixer
       piper
       psmisc
@@ -93,7 +100,6 @@ in {
     ++ (with pkgs.inur; [
       krabby
       leagueoflegends
-      obinskit
     ]);
 
   programs = {

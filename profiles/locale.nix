@@ -28,7 +28,12 @@
         ++ [
           (fcitx5-rime.override {
             rimeDataPkgs = with pkgs.inur; [
-              rime-cloverpinyin
+              (rime-cloverpinyin.overrideAttrs (finalAttrs: previousAttrs: {
+                preInstall = ''
+                  echo '  - warframe' >> clover.dict.yaml
+                '';
+              }))
+              rime-dict
             ];
           })
         ];

@@ -129,7 +129,10 @@
     {
       inherit self inputs;
 
-      channelsConfig = {allowUnfree = true;};
+      channelsConfig = {
+        allowUnfree = true;
+        permittedInsecurePackages = ["electron-13.6.9"];
+      };
 
       channels = {
         nixos = {
