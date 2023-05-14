@@ -100,6 +100,9 @@ in {
     ++ (with pkgs.inur; [
       krabby
       leagueoflegends
+    ])
+    ++ (with pkgs.nur.repos; [
+      xddxdd.wine-wechat
     ]);
 
   programs = {

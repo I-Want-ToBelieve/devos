@@ -103,6 +103,8 @@
       inputs.nixpkgs.follows = "latest";
     };
 
+    nur.url = "github:nix-community/NUR";
+
     # Stylix is a NixOS module which applies the same color scheme, font and wallpaper to a wide range of applications and desktop environments. It also exports utilities for you to use the theme in custom parts of your configuration.
     # https://danth.github.io/stylix/installation.html
     stylix.url = "github:danth/stylix";
