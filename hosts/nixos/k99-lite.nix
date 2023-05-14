@@ -35,8 +35,9 @@
     };
 
     amdgpu = {
-      amdvlk = true;
-      opencl = true;
+      amdvlk = false;
+      opencl = false;
+      loadInInitrd = false;
     };
 
     bluetooth = {
@@ -48,6 +49,9 @@
     pulseaudio.enable = false;
   };
 
+  # services.xserver.videoDrivers = ["amdgpu"];
+  # @see https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
+  # @see https://viniciusmuller.github.io/blog/NixOS/gpu_passthrough.html#identifying-iommu-devices
   boot = {
     kernelModules = [
       "kvm-intel" # If using an AMD processor, use `kvm-amd`
@@ -63,7 +67,7 @@
     '';
     extraModulePackages = [];
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["intel_iommu=on" "iommu=pt"];
+    kernelParams = ["intel_iommu=on" "iommu=pt" "pcie_aspm=off"];
 
     supportedFilesystems = ["btrfs" "ntfs"];
 
@@ -183,7 +187,7 @@
       enable = true;
       daemon = {
         settings = {
-          registry-mirrors = ["https://registry.docker-cn.com" https://hub-mirror.c.163.com];
+          registry-mirrors = ["https://registry.docker-cn.com" "https://hub-mirror.c.163.com"];
         };
       };
     };
@@ -223,8 +227,6 @@
         STOP_CHARGE_THRESH_BAT0 = 80;
       };
     };
-
-    xserver.videoDrivers = ["amdgpu"];
   };
 
   xdg.portal = {
