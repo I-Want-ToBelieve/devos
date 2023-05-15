@@ -102,7 +102,7 @@ in {
       leagueoflegends
     ])
     ++ (with pkgs.nur.repos; [
-      xddxdd.wine-wechat
+      xddxdd.wechat-uos
     ]);
 
   programs = {

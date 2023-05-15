@@ -133,7 +133,7 @@
 
       channelsConfig = {
         allowUnfree = true;
-        permittedInsecurePackages = ["electron-13.6.9"];
+        permittedInsecurePackages = ["electron-13.6.9" "electron-19.0.7"];
       };
 
       channels = {

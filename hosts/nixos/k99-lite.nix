@@ -35,9 +35,9 @@
     };
 
     amdgpu = {
-      amdvlk = false;
-      opencl = false;
-      loadInInitrd = false;
+      amdvlk = true;
+      opencl = true;
+      loadInInitrd = true;
     };
 
     bluetooth = {
