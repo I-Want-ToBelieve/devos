@@ -30,7 +30,7 @@
     };
 
     variables = {
-      EDITOR = "hx";
+      EDITOR = "nvim";
       BROWSER = "firefox";
     };
 

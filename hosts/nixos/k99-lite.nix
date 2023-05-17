@@ -13,6 +13,7 @@
     [(modulesPath + "/installer/scan/not-detected.nix")]
     ++ [
       inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
+      inputs.nixos-hardware.nixosModules.common-gpu-intel
       inputs.nixos-hardware.nixosModules.common-gpu-amd
     ];
 
@@ -20,18 +21,12 @@
   boot.blacklistedKernelModules = ["nouveau" "nvidia"];
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
+    "f /dev/shm/looking-glass 0660 i.want.to.believe qemu-libvirtd -"
   ];
 
   hardware = {
     opengl = {
       enable = true;
-      extraPackages = with pkgs;
-        pkgs.lib.mkForce [
-          (vaapiIntel.override {enableHybridCodec = true;})
-          vaapiVdpau
-          libvdpau-va-gl
-          intel-media-driver
-        ];
     };
 
     amdgpu = {
@@ -52,11 +47,13 @@
   # services.xserver.videoDrivers = ["amdgpu"];
   # @see https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
   # @see https://viniciusmuller.github.io/blog/NixOS/gpu_passthrough.html#identifying-iommu-devices
+  # @see https://nixos.wiki/wiki/IGVT-g
   boot = {
     kernelModules = [
       "kvm-intel" # If using an AMD processor, use `kvm-amd`
       "vfio_pci"
       "vfio_iommu_type1"
+      "vfio-mdev"
       "vfio_virqfd"
       "vfio"
     ];
@@ -67,7 +64,15 @@
     '';
     extraModulePackages = [];
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["intel_iommu=on" "iommu=pt" "pcie_aspm=off"];
+    kernelParams = [
+      "intel_iommu=on"
+      # "i915.enable_gvt=1"
+      # "i915.enable_guc=0"
+      "iommu=pt"
+      # "earlymodules=vfio-pci"
+      # "vfio-pci.ids=8086:1912"
+      "pcie_aspm=off"
+    ];
 
     supportedFilesystems = ["btrfs" "ntfs"];
 
@@ -168,6 +173,11 @@
     {device = "/dev/disk/by-label/swap";}
   ];
 
+  fileSystems."/var/lib/libvirt" = {
+    device = "/dev/disk/by-label/qemu-kvm";
+    fsType = "ext4";
+  };
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
@@ -204,12 +214,19 @@
     libvirtd = {
       enable = true;
       qemu = {
-        package = pkgs.qemu_kvm;
         ovmf = {
           enable = true;
-          packages = with pkgs; [OVMFFull.fd];
         };
-        swtpm.enable = true;
+        runAsRoot = false;
+      };
+    };
+
+    kvmgt = {
+      enable = true;
+      vgpus = {
+        "i915-GVTg_V5_4" = {
+          uuid = ["179881f8-f4d8-11ed-8914-23e4dfd5da5b"];
+        };
       };
     };
   };
@@ -249,6 +266,7 @@
       qt5.qtwayland
       qt5ct
       virt-manager
+      virt-viewer
       vulkan-tools
     ];
   };

@@ -312,7 +312,7 @@
           suites = with profiles; {
             base = [packages nix misc stylixs];
             cli = with cli; [direnv git ssh starship helix neovim];
-            gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio vscode zathura copyq];
+            gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio vscode zathura copyq looking-glass-client];
             shells = with shells; [fish zsh nu];
             hyprland = with desktop; [dunst waybar window-managers.hyprland rofi swaylock mime];
             kde-x11 = [desktop.plasma desktop.sxhkd desktop.bismuth desktop.kvantum];
