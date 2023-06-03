@@ -120,10 +120,10 @@
 
     settings = {
       X11Forwarding = false;
-      permitRootLogin = lib.mkForce "no";
-      useDns = false;
-      passwordAuthentication = lib.mkForce false;
-      kbdInteractiveAuthentication = false;
+      PermitRootLogin = lib.mkForce "no";
+      UseDns = false;
+      PasswordAuthentication = lib.mkForce false;
+      KbdInteractiveAuthentication = false;
     };
 
     hostKeys = [

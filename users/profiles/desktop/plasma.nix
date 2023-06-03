@@ -284,6 +284,7 @@
       "kactivitymanagerdrc"."activities"."2fceeaf5-e7eb-41ea-9108-13788b24131a" = "Default";
       "kactivitymanagerdrc"."main"."currentActivity" = "2fceeaf5-e7eb-41ea-9108-13788b24131a";
       "kcminputrc"."Mouse"."X11LibInputXAccelProfileFlat" = false;
+      "kcminputrc"."Mouse"."XLbInptAccelProfileFlat" = true;
       "kded5rc"."Module-browserintegrationreminder"."autoload" = false;
       "kded5rc"."Module-device_automounter"."autoload" = false;
       "kded5rc"."PlasmaBrowserIntegration"."shownCount" = 4;

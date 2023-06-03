@@ -24,7 +24,6 @@ in {
       blueberry
       btop
       bottom
-      clippy
       cairo
       cached-nix-shell
       cinnamon.nemo
@@ -103,6 +102,7 @@ in {
     ])
     ++ (with pkgs.nur.repos; [
       xddxdd.wechat-uos
+      xddxdd.baidupcs-go
     ]);
 
   programs = {

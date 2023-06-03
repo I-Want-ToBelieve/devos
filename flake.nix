@@ -260,12 +260,12 @@
             // {
               users = digga.lib.rakeLeaves ./users;
             };
-          suites = with profiles; rec {
+          suites = with profiles; {
             base = [core.nixos users.nixos users.root users."i.want.to.believe"];
             kde-x11 = [display-managers.sddm desktop-environment.kde];
             kde-wayland = [display-managers.sddm];
             hyprland = [display-managers.greetd];
-            misc = [network nix locale fonts stylixs];
+            misc = [network nix locale fonts stylixs systemd-shutdown-diagnose];
             games = [game.steam game.uudeck];
           };
         };
@@ -298,7 +298,7 @@
             // {
               users = digga.lib.rakeLeaves ./users;
             };
-          suites = with profiles; rec {
+          suites = with profiles; {
             base = [core.darwin users.darwin];
           };
         };

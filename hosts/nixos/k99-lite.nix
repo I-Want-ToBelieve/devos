@@ -30,9 +30,9 @@
     };
 
     amdgpu = {
-      amdvlk = true;
+      amdvlk = false;
       opencl = true;
-      loadInInitrd = true;
+      loadInInitrd = false;
     };
 
     bluetooth = {
@@ -178,6 +178,35 @@
     fsType = "ext4";
   };
 
+  fileSystems."/home/i.want.to.believe/Games" = {
+    device = "/dev/disk/by-label/SG";
+    fsType = "ext4";
+    options = [
+      "rw"
+      "nosuid"
+      "nodev"
+      "relatime"
+      "errors=remount-ro"
+    ];
+    noCheck = true;
+  };
+
+  fileSystems."/run/media/i.want.to.believe/Games" = {
+    device = "/dev/disk/by-label/Games";
+    fsType = "ntfs3";
+    options = [
+      "rw"
+      "nosuid"
+      "nodev"
+      "relatime"
+      "uid=1000"
+      "gid=100"
+      "iocharset=utf8"
+      "windows_names"
+    ];
+    noCheck = true;
+  };
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
@@ -192,6 +221,9 @@
 
   virtualisation = {
     spiceUSBRedirection.enable = true;
+
+    waydroid.enable = true;
+    lxd.enable = true;
 
     docker = {
       enable = true;
@@ -255,6 +287,11 @@
   };
 
   environment = {
+    variables = {
+      AMD_VULKAN_ICD = "RADV";
+      DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1 = "1";
+      VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
+    };
     systemPackages = with pkgs; [
       acpi
       brightnessctl
@@ -268,6 +305,10 @@
       virt-manager
       virt-viewer
       vulkan-tools
+      vulkan-loader
+      wl-clipboard
+      ydotool
+      inur.systemd-shutdown-diagnose
     ];
   };
 }

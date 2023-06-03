@@ -19,10 +19,10 @@
       205.185.216.42 content.warframe.com
 
       # 香港 (国内裸连 + 加速器)
-      23.194.224.167 origin.warframe.com
-      23.194.224.167 api.warframe.com
-      23.194.224.167 arbiter.warframe.com
-      # 23.35.126.124
+      23.66.153.77 origin.warframe.com
+      23.66.153.77 api.warframe.com
+      23.66.153.77 arbiter.warframe.com
+      # 23.194.224.167
 
       # 编辑日期: 2023-05-14
     '';

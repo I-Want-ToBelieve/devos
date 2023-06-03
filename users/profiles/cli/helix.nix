@@ -147,7 +147,6 @@
     asmfmt
     black
     ccls
-    cargo
     clang
     clang-tools
     delve
@@ -166,8 +165,8 @@
     ktlint
     lldb
     nodejs
+    rust-bin.stable.latest.default
     rust-analyzer
-    rustfmt
     rnix-lsp
     selene
     shellcheck

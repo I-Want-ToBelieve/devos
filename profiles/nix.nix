@@ -26,9 +26,6 @@
     dev.enable = false;
   };
 
-  # pickup pkgs from flake export
-  nixpkgs.pkgs = inputs.self.pkgs;
-
   nix = {
     gc = {
       automatic = true;

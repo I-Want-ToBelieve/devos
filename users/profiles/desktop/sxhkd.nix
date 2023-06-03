@@ -12,7 +12,7 @@
   ];
 
   services.sxhkd = {
-    enable = true;
+    enable = false;
     keybindings = {
       "shift + BackSpace" = "xdotool key Delete";
       "super + Return" = "kitty";
