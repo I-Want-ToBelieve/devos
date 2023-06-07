@@ -4,6 +4,7 @@
     enable = true;
     shortcuts = {
       "ActivityManager"."switch-to-activity-2fceeaf5-e7eb-41ea-9108-13788b24131a" = [];
+      "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (US)" = [];
       "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = "Meta+Alt+K";
       "bismuth"."decrease_master_size" = [];
       "bismuth"."decrease_master_win_count" = [];
@@ -67,6 +68,7 @@
       "kwin"."ExposeClassCurrentDesktop" = [];
       "kwin"."Increase Opacity" = [];
       "kwin"."Kill Window" = "Meta+Ctrl+Esc";
+      "kwin"."Move Tablet to Next Output" = [];
       "kwin"."MoveMouseToCenter" = "Meta+F6";
       "kwin"."MoveMouseToFocus" = "Meta+F5";
       "kwin"."MoveZoomDown" = [];
@@ -221,6 +223,9 @@
       "mediacontrol"."previousmedia" = "Media Previous";
       "mediacontrol"."stopmedia" = "Media Stop";
       "org.kde.dolphin.desktop"."_launch" = "Meta+E";
+      "org.kde.konsole.desktop"."NewTab" = [];
+      "org.kde.konsole.desktop"."NewWindow" = [];
+      "org.kde.konsole.desktop"."_launch" = "Ctrl+Alt+T";
       "org.kde.krunner.desktop"."RunClipboard" = "Alt+Shift+F2";
       "org.kde.krunner.desktop"."_launch" = ["Alt+Space" "Alt+F2" "Search"];
       "org.kde.plasma.emojier.desktop"."_launch" = "Meta+.";
@@ -319,6 +324,7 @@
       "kdeglobals"."WM"."inactiveBlend" = "85,85,85";
       "kdeglobals"."WM"."inactiveForeground" = "170,170,170";
       "kdeglobals"."WM"."inactiveFrame" = "81,100,104";
+      "kgammarc"."ConfigFile"."use" = "kgammarc";
       "kglobalshortcutsrc"."ActivityManager"."_k_friendly_name" = "Activity Manager";
       "kglobalshortcutsrc"."KDE Keyboard Layout Switcher"."_k_friendly_name" = "Keyboard Layout Switcher";
       "kglobalshortcutsrc"."bismuth"."_k_friendly_name" = "Window Tiling";
@@ -331,11 +337,12 @@
       "kglobalshortcutsrc"."kwin"."_k_friendly_name" = "KWin";
       "kglobalshortcutsrc"."mediacontrol"."_k_friendly_name" = "Media Controller";
       "kglobalshortcutsrc"."org.kde.dolphin.desktop"."_k_friendly_name" = "Dolphin";
+      "kglobalshortcutsrc"."org.kde.konsole.desktop"."_k_friendly_name" = "Konsole";
       "kglobalshortcutsrc"."org.kde.krunner.desktop"."_k_friendly_name" = "KRunner";
       "kglobalshortcutsrc"."org.kde.plasma.emojier.desktop"."_k_friendly_name" = "Emoji Selector";
       "kglobalshortcutsrc"."org.kde.spectacle.desktop"."_k_friendly_name" = "Spectacle";
       "kglobalshortcutsrc"."org_kde_powerdevil"."_k_friendly_name" = "Power Management";
-      "kglobalshortcutsrc"."plasmashell"."_k_friendly_name" = "Plasma";
+      "kglobalshortcutsrc"."plasmashell"."_k_friendly_name" = "Activity switching";
       "kglobalshortcutsrc"."systemsettings.desktop"."_k_friendly_name" = "System Settings";
       "khotkeysrc"."Data"."DataCount" = 3;
       "khotkeysrc"."Data_1"."Comment" = "KMenuEdit Global Shortcuts";
@@ -864,6 +871,9 @@
       "khotkeysrc"."WM"."inactiveBlend[$d]" = "";
       "khotkeysrc"."WM"."inactiveForeground[$d]" = "";
       "khotkeysrc"."WM"."inactiveFrame[$d]" = "";
+      "kiorc"."Confirmations"."ConfirmDelete" = true;
+      "klipperrc"."General"."IgnoreImages" = false;
+      "klipperrc"."General"."MaxClipItems" = 999;
       "krunnerrc"."General"."FreeFloating" = true;
       "kwalletrc"."Wallet"."First Use" = false;
       "kwinrc"."Desktops"."Id_1" = "6d364b4f-cbbf-46a6-a296-a7c3bb924507";
@@ -879,6 +889,7 @@
       "kwinrc"."Desktops"."Number" = 10;
       "kwinrc"."Desktops"."Rows" = 1;
       "kwinrc"."Effect-magiclamp"."AnimationDuration" = 400;
+      "kwinrc"."Effect-windowview"."BorderActivateAll" = 9;
       "kwinrc"."Effect-wobblywindows"."AdvancedMode" = true;
       "kwinrc"."Effect-wobblywindows"."Drag" = 92;
       "kwinrc"."Effect-wobblywindows"."MoveFactor" = 20;
@@ -893,6 +904,7 @@
       "kwinrc"."Plugins"."kwin4_effect_squashEnabled" = false;
       "kwinrc"."Plugins"."lattewindowcolorsEnabled" = true;
       "kwinrc"."Plugins"."magiclampEnabled" = true;
+      "kwinrc"."Plugins"."screenedgeEnabled" = false;
       "kwinrc"."Plugins"."wobblywindowsEnabled" = true;
       "kwinrc"."Script-bismuth"."floatingClass" = "steam_app.*";
       "kwinrc"."Script-bismuth"."ignoreClass" = "yakuake,spectacle,Conky,zoom,tdrop_terminal,copyq,Steam,lutris";
@@ -906,8 +918,19 @@
       "kwinrc"."Script-forceblur"."blurExceptMatching" = true;
       "kwinrc"."Script-forceblur"."blurMatching" = false;
       "kwinrc"."Tiling"."padding" = 4;
+      "kwinrc"."Tiling.347893a2-fd0a-5ea3-bdb9-b090bcdf3441"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
       "kwinrc"."Tiling.58ca410b-ce44-58d6-82b9-fefe44aba0e3"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.737d9ef7-347c-5090-903e-2486a474bf1e"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.75a7b21b-2d99-5bfc-8558-c99f5b093214"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.81f320cc-8d18-56ce-a575-8a3eafcc9b39"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.901ecfb4-042a-5be4-87a6-2641eac6c290"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.92e842d7-5928-5c43-884a-4912e7cc82ed"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.a5aa6954-fac1-58b7-ae05-a72bd13601b0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
       "kwinrc"."Tiling.da43ea0f-263a-5982-821c-10d28ccbdd2b"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.f5aa25f6-485e-54ff-bc19-778f3ada3433"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Windows"."ElectricBorderMaximize" = false;
+      "kwinrc"."Windows"."ElectricBorderTiling" = false;
+      "kwinrc"."Xwayland"."Scale" = 1;
       "kwinrc"."org.kde.kdecoration2"."BorderSize" = "Tiny";
       "kwinrc"."org.kde.kdecoration2"."BorderSizeAuto" = false;
       "kwinrulesrc"."1"."Description" = "min  = 0";
@@ -920,9 +943,13 @@
       "kwinrulesrc"."6677ad57-ece4-448e-b9ca-d81d7ab98c13"."wmclass" = "^(?!.*krunner).*$";
       "kwinrulesrc"."6677ad57-ece4-448e-b9ca-d81d7ab98c13"."wmclassmatch" = 3;
       "kwinrulesrc"."General"."count" = 1;
-      "kwinrulesrc"."General"."rules" = "6677ad57-ece4-448e-b9ca-d81d7ab98c13";
+      "kwinrulesrc"."General"."rules" = 1;
+      "kxkbrc"."Layout"."DisplayNames" = "";
+      "kxkbrc"."Layout"."LayoutList" = "us";
       "kxkbrc"."Layout"."Options" = "terminate:ctrl_alt_bksp,caps:swapescape";
       "kxkbrc"."Layout"."ResetOldOptions" = true;
+      "kxkbrc"."Layout"."Use" = true;
+      "kxkbrc"."Layout"."VariantList" = "";
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
       "plasmanotifyrc"."Notifications"."PopupPosition" = "TopRight";
       "plasmarc"."Wallpapers"."usersWallpapers" = "//home/i.want.to.believe/git.workspaces/dotfiles.workspaces/devos/arts/wallpapers/catppuccin.png";

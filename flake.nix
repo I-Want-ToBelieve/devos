@@ -133,7 +133,7 @@
 
       channelsConfig = {
         allowUnfree = true;
-        permittedInsecurePackages = ["electron-13.6.9" "electron-19.0.7"];
+        permittedInsecurePackages = ["electron-13.6.9" "electron-19.0.7" "openssl-1.1.1u"];
       };
 
       channels = {
@@ -233,7 +233,7 @@
                   ++ suites.games
                   ++ (
                     if configs.useDE
-                    then suites.kde-x11
+                    then suites.kde-wayland
                     else suites.hyprland
                   );
               })
@@ -263,9 +263,9 @@
           suites = with profiles; {
             base = [core.nixos users.nixos users.root users."i.want.to.believe"];
             kde-x11 = [display-managers.sddm desktop-environment.kde];
-            kde-wayland = [display-managers.sddm];
+            kde-wayland = [display-managers.sddm desktop-environment.kde];
             hyprland = [display-managers.greetd];
-            misc = [network nix locale fonts stylixs systemd-shutdown-diagnose];
+            misc = [network nix locale fonts stylixs systemd-shutdown-diagnose share-via-wifi];
             games = [game.steam game.uudeck];
           };
         };
@@ -312,11 +312,11 @@
           suites = with profiles; {
             base = [packages nix misc stylixs];
             cli = with cli; [direnv git ssh starship helix neovim];
-            gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio vscode zathura copyq looking-glass-client];
+            gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio zathura copyq looking-glass-client];
             shells = with shells; [fish zsh nu];
             hyprland = with desktop; [dunst waybar window-managers.hyprland rofi swaylock mime];
             kde-x11 = [desktop.plasma desktop.sxhkd desktop.bismuth desktop.kvantum];
-            kde-wayland = [desktop.plasma desktop.bismuth];
+            kde-wayland = [desktop.plasma desktop.bismuth desktop.kvantum];
           };
         };
         users = {
@@ -354,7 +354,7 @@
               ++ suites.shells
               ++ (
                 if configs.useDE
-                then suites.kde-x11
+                then suites.kde-wayland
                 else suites.hyprland
               );
           };

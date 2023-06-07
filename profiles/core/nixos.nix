@@ -26,12 +26,11 @@
       GTK_IM_MODULE = "fcitx";
       QT_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";
-      GLFW_IM_MODULE = "ibus";
     };
 
     variables = {
       EDITOR = "nvim";
-      BROWSER = "firefox";
+      BROWSER = "google-chrome-stable";
     };
 
     # Selection of sysadmin tools that can come in handy

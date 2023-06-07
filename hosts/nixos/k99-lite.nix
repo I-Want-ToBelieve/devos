@@ -30,9 +30,9 @@
     };
 
     amdgpu = {
-      amdvlk = false;
+      amdvlk = true;
       opencl = true;
-      loadInInitrd = false;
+      loadInInitrd = true;
     };
 
     bluetooth = {
@@ -56,13 +56,22 @@
       "vfio-mdev"
       "vfio_virqfd"
       "vfio"
+      # https://www.reddit.com/r/NixOS/comments/p8bqvu/how_to_install_v4l2looback_kernel_module/?onetap_auto=true
+      # Virtual Camera
+      "v4l2loopback"
+      # Virtual Microphone, built-in
+      "snd-aloop"
     ];
     extraModprobeConfig = ''
       options kvm_intel nested=1
       options kvm_intel emulate_invalid_guest_state=0
       options kvm ignore_msrs=1
+      # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
+      # card_label: Name of virtual camera, how it'll show up in Skype, Zoom, Teams
+      # https://github.com/umlaeute/v4l2loopback
+      options v4l2loopback exclusive_caps=1 video_nr=9 card_label="Virtual Camera"
     '';
-    extraModulePackages = [];
+    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "intel_iommu=on"
@@ -105,7 +114,6 @@
 
       grub = {
         enable = true;
-        version = 2;
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
@@ -308,7 +316,7 @@
       vulkan-loader
       wl-clipboard
       ydotool
-      inur.systemd-shutdown-diagnose
+      # inur.systemd-shutdown-diagnose
     ];
   };
 }

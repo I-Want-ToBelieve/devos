@@ -1,6 +1,6 @@
 {}: {
   useDE = true;
-  useWayland = false;
+  useWayland = true;
   DE = "KDE";
   windowsManger = "hyprland";
 }

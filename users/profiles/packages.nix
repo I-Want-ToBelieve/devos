@@ -28,7 +28,10 @@ in {
       cached-nix-shell
       cinnamon.nemo
       coreutils
+      comma
       dconf
+      droidcam
+      obs-studio-plugins.droidcam-obs
       findutils
       ffmpeg-full
       fzf
@@ -75,6 +78,7 @@ in {
       thefuck
       trash-cli
       util-linux
+      vscode
       wineWowPackages.fonts
       wineWowPackages.unstableFull
       winetricks
