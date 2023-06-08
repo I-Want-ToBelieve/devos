@@ -31,7 +31,6 @@ in {
       comma
       dconf
       droidcam
-      obs-studio-plugins.droidcam-obs
       findutils
       ffmpeg-full
       fzf
@@ -114,18 +113,28 @@ in {
 
     fzf = {
       enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
+    };
+
+    mcfly = {
+      enable = true;
+      enableBashIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
     };
 
     zoxide = {
       enable = true;
+      enableBashIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
     };
 
     dircolors = {
       enable = true;
+      enableBashIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
     };
