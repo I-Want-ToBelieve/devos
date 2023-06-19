@@ -7,17 +7,10 @@
     # @see https://github.com/Bismuth-Forge/bismuth/blob/ef69afe69f615149ab347e4402862ee900452a65/src/kdecoration/decoration.cpp#L63-L64
     # @see https://discourse.nixos.org/t/how-to-patch-in-an-overlay/3678
     # @see https://stackoverflow.com/a/28484585
-    (libsForQt5.bismuth.overrideAttrs
-      (finalAttrs: previousAttrs: {
-        patches =
-          (previousAttrs.patches or [])
-          ++ [
-            (fetchpatch {
-              name = "bismuth-3.1-4-border-color.patch";
-              url = "https://github.com/I-Want-ToBelieve/bismuth/commit/dac110934fe1ae0da9e4aca8c331f27987b033cf.patch";
-              sha256 = "sha256-3fQs/A4hc/qeiu+792nZBTl4ujg8rQD25kuwNr03YUs=";
-            })
-          ];
-      }))
+    # (libsForQt5.bismuth.overrideAttrs
+    #   (finalAttrs: previousAttrs: {
+    #     src = /home/i.want.to.believe/git.workspaces/any.workspaces/bismuth/.;
+    #     version = "5.0.6";
+    #   }))
   ];
 }

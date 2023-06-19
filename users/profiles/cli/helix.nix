@@ -76,69 +76,77 @@
       };
     };
 
-    languages = with pkgs; [
-      {
-        name = "cpp";
-        auto-format = true;
-        language-server = {
+    languages = {
+      language-server = with pkgs; {
+        clangd = {
           command = "${clang-tools}/bin/clangd";
           clangd.fallbackFlags = ["-std=c++2b"];
         };
-        formatter = {
-          command = "${clang-tools}/bin/clang-format";
-          args = ["-i"];
-        };
-      }
-      {
-        name = "css";
-        auto-format = true;
-      }
-      {
-        name = "go";
-        auto-format = true;
-        language-server = {
+        gopls = {
           command = "${gopls}/bin/gopls";
         };
-        formatter = {
-          command = "${go}/bin/gofmt";
-        };
-      }
-      {
-        name = "javascript";
-        auto-format = true;
-        language-server = {
+        typescript-language-server = {
           command = "${nodePackages.typescript-language-server}/bin/typescript-language-server";
           args = ["--stdio"];
         };
-      }
-      {
-        name = "nix";
-        auto-format = true;
-        language-server = {command = lib.getExe inputs.nil.packages.${system}.default;};
-        config.nil.formatting.command = ["alejandra" "-q"];
-      }
-      {
-        name = "rust";
-        auto-format = true;
-        language-server = {
+
+        rust-analyzer = {
           command = "${rust-analyzer}/bin/rust-analyzer";
         };
-        formatter = {
-          command = "${rustfmt}/bin/rustfmt";
+
+        nil = {
+          command = lib.getExe inputs.nil.packages.${system}.default;
         };
-      }
-      {
-        name = "typescript";
-        auto-format = true;
-        language-server = {
-          command = "${nodePackages.typescript-language-server}/bin/typescript-language-server";
-          args = ["--stdio"];
-        };
-        formatter = {
-          command = "${nodePackages.prettier}/bin/prettier";
-        };
-      }
-    ];
+      };
+
+      language = with pkgs; [
+        {
+          name = "cpp";
+          auto-format = true;
+          formatter = {
+            command = "${clang-tools}/bin/clang-format";
+            args = ["-i"];
+          };
+        }
+        {
+          name = "css";
+          auto-format = true;
+        }
+        {
+          name = "go";
+          auto-format = true;
+          formatter = {
+            command = "${go}/bin/gofmt";
+          };
+        }
+        {
+          name = "javascript";
+          auto-format = true;
+          language-server = {
+          };
+        }
+        {
+          name = "nix";
+          auto-format = true;
+          config.nil.formatting.command = ["alejandra" "-q"];
+        }
+        {
+          name = "rust";
+          auto-format = true;
+
+          formatter = {
+            command = "${rustfmt}/bin/rustfmt";
+          };
+        }
+        {
+          name = "typescript";
+          auto-format = true;
+          formatter = {
+            command = "${nodePackages.prettier}/bin/prettier";
+          };
+        }
+      ];
+    };
   };
 
   home.packages = with pkgs; [

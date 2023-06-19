@@ -299,6 +299,7 @@
       AMD_VULKAN_ICD = "RADV";
       DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1 = "1";
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
+      QT_LOGGING_RULES = "kwin_*.debug=true";
     };
     systemPackages = with pkgs; [
       acpi

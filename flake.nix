@@ -32,7 +32,7 @@
     };
 
     # Track channels with commits tested and built by hydra
-    nixos.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixos.url = "github:nixos/nixpkgs/nixos-23.05";
     latest.url = "github:nixos/nixpkgs/nixos-unstable";
     # For darwin hosts: it can be helpful to track this darwin-specific stable
     # channel equivalent to the `nixos-*` channels for NixOS. For one, these
@@ -40,7 +40,7 @@
     # But, perhaps even more usefully, it provides a place for adding
     # darwin-specific overlays and packages which could otherwise cause build
     # failures on Linux systems.
-    nixpkgs-darwin-stable.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
+    nixpkgs-darwin-stable.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
 
     deploy.url = "github:serokell/deploy-rs";
     deploy.inputs.nixpkgs.follows = "latest";
@@ -209,7 +209,7 @@
 
               agenix.nixosModules.age
               {
-                system.stateVersion = "22.11";
+                system.stateVersion = "23.05";
                 system.autoUpgrade.enable = false;
               }
             ]
@@ -265,7 +265,7 @@
             kde-x11 = [display-managers.sddm desktop-environment.kde];
             kde-wayland = [display-managers.sddm desktop-environment.kde];
             hyprland = [display-managers.greetd];
-            misc = [network nix locale fonts stylixs systemd-shutdown-diagnose share-via-wifi];
+            misc = [network nix locale fonts stylixs systemd-shutdown-diagnose share-via-wifi samba];
             games = [game.steam game.uudeck];
           };
         };
@@ -306,7 +306,7 @@
 
       home = {
         imports = [(digga.lib.importExportableModules ./users/modules)];
-        modules = [inputs.hyprland.homeManagerModules.default inputs.plasma-manager.homeManagerModules.plasma-manager] ++ [{home.stateVersion = "22.11";}];
+        modules = [inputs.hyprland.homeManagerModules.default inputs.plasma-manager.homeManagerModules.plasma-manager] ++ [{home.stateVersion = "23.05";}];
         importables = rec {
           profiles = digga.lib.rakeLeaves ./users/profiles;
           suites = with profiles; {

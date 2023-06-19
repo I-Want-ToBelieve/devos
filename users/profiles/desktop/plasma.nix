@@ -950,7 +950,7 @@
       "kwinrc"."Plugins"."wobblywindowsEnabled" = true;
       "kwinrc"."Script-bismuth"."floatingClass" = "steam_app.*, Steam,Warframe,lutris,Riot Client Main,League of Legends, weixin, .scrcpy-wrapped";
       "kwinrc"."Script-bismuth"."ignoreClass" = "yakuake,spectacle,Conky,zoom,tdrop_terminal,copyq,Steam,lutris, steam";
-      "kwinrc"."Script-bismuth"."ignoreTitle" = "";
+      "kwinrc"."Script-bismuth"."ignoreTitle" = "Steam, Warframe";
       "kwinrc"."Script-bismuth"."newWindowAsMaster" = true;
       "kwinrc"."Script-bismuth"."screenGapBottom" = 20;
       "kwinrc"."Script-bismuth"."screenGapLeft" = 20;
