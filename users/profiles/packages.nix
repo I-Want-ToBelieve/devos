@@ -82,6 +82,7 @@ in {
       xh
       xorg.xhost
       yesplaymusic
+      yuzu-ea
       zoom-us
       catimg
       duf
