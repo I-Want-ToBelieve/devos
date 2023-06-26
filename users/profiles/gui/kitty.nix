@@ -1,13 +1,14 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   programs.kitty = {
     enable = true;
     settings = {
       # Window
-      background_opacity = "0.9";
+      background_opacity = lib.mkForce "0.9";
       inactive_text_alpha = "1.0";
       window_padding_width = "12 24 0 24";
       placement_strategy = "center";

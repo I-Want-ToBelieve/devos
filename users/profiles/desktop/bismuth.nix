@@ -7,10 +7,10 @@
     # @see https://github.com/Bismuth-Forge/bismuth/blob/ef69afe69f615149ab347e4402862ee900452a65/src/kdecoration/decoration.cpp#L63-L64
     # @see https://discourse.nixos.org/t/how-to-patch-in-an-overlay/3678
     # @see https://stackoverflow.com/a/28484585
-    # (libsForQt5.bismuth.overrideAttrs
-    #   (finalAttrs: previousAttrs: {
-    #     src = /home/i.want.to.believe/git.workspaces/any.workspaces/bismuth/.;
-    #     version = "5.0.6";
-    #   }))
+    (libsForQt5.bismuth.overrideAttrs
+      (finalAttrs: previousAttrs: {
+        src = /home/i.want.to.believe/git.workspaces/any.workspaces/bismuth/.;
+        version = "5.0.6";
+      }))
   ];
 }
