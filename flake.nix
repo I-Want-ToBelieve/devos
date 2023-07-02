@@ -316,7 +316,7 @@
             shells = with shells; [fish zsh nu];
             hyprland = with desktop; [dunst waybar window-managers.hyprland rofi swaylock mime];
             kde-x11 = [desktop.plasma desktop.sxhkd desktop.bismuth desktop.kvantum];
-            kde-wayland = [desktop.plasma desktop.bismuth desktop.kvantum];
+            kde-wayland = [desktop.plasma desktop.sxhkd desktop.bismuth desktop.kvantum];
           };
         };
         users = {
