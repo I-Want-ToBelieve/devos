@@ -301,6 +301,11 @@
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
       QT_LOGGING_RULES = "kwin_*.debug=true";
     };
+
+    sessionVariables = {
+      # NIXOS_OZONE_WL = "1";
+    };
+
     systemPackages = with pkgs; [
       acpi
       brightnessctl
