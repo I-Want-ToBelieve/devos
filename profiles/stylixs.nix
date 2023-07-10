@@ -9,7 +9,7 @@
   # stylix.polarity = "dark";
 
   # @see https://github.com/tinted-theming/base16-schemes
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
   stylix.fonts = {
     serif = {

@@ -306,13 +306,20 @@
 
       home = {
         imports = [(digga.lib.importExportableModules ./users/modules)];
-        modules = [inputs.hyprland.homeManagerModules.default inputs.plasma-manager.homeManagerModules.plasma-manager] ++ [{home.stateVersion = "23.05";}];
+        modules =
+          [
+            inputs.hyprland.homeManagerModules.default
+            inputs.plasma-manager.homeManagerModules.plasma-manager
+          ]
+          ++ [
+            {home.stateVersion = "23.05";}
+          ];
         importables = rec {
           profiles = digga.lib.rakeLeaves ./users/profiles;
           suites = with profiles; {
             base = [packages nix misc stylixs];
             cli = with cli; [direnv git ssh starship helix neovim];
-            gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio zathura copyq looking-glass-client];
+            gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio zathura copyq looking-glass-client mpv];
             shells = with shells; [fish zsh nu];
             hyprland = with desktop; [dunst waybar window-managers.hyprland rofi swaylock mime];
             kde-x11 = [desktop.plasma desktop.sxhkd desktop.bismuth desktop.kvantum];

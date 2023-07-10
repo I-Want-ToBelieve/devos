@@ -322,6 +322,8 @@
       vulkan-loader
       wl-clipboard
       ydotool
+      vkbasalt
+      vkbasalt-cli
       # inur.systemd-shutdown-diagnose
     ];
   };

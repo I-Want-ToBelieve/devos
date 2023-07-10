@@ -3,16 +3,7 @@
   pkgs,
   config,
   ...
-}: let
-  mpv-unwrapped = pkgs.mpv-unwrapped.overrideAttrs (o: {
-    src = pkgs.fetchFromGitHub {
-      owner = "mpv-player";
-      repo = "mpv";
-      rev = "48ad2278c7a1fc2a9f5520371188911ef044b32c";
-      sha256 = "sha256-6qbv34ysNQbI/zff6rAnVW4z6yfm2t/XL/PF7D/tjv4=";
-    };
-  });
-in {
+}: {
   home.packages = with pkgs;
     [
       alsa-lib
@@ -55,11 +46,11 @@ in {
       # libreoffice-fresh
       lutris
       microsoft-edge
-      mpv-unwrapped
       netease-cloud-music-gtk
       nil
       nodejs
       obinskit
+      openssl
       pamixer
       piper
       psmisc
@@ -84,6 +75,7 @@ in {
       yesplaymusic
       yuzu-ea
       zoom-us
+      gnome.zenity
       catimg
       duf
       du-dust
