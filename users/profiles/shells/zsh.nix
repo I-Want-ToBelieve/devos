@@ -276,16 +276,16 @@
         src = zsh-vi-mode;
         file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
-      {
-        name = "fzf-tab";
-        file = "fzf-tab.plugin.zsh";
-        src = fetchFromGitHub {
-          owner = "Aloxaf";
-          repo = "fzf-tab";
-          rev = "426271fb1bbe8aa88ff4010ca4d865b4b0438d90";
-          sha256 = "sha256-RXqEW+jwdul2mKX86Co6HLsb26UrYtLjT3FzmHnwfAA=";
-        };
-      }
+      # {
+      #   name = "fzf-tab";
+      #   file = "fzf-tab.plugin.zsh";
+      #   src = fetchFromGitHub {
+      #     owner = "Aloxaf";
+      #     repo = "fzf-tab";
+      #     rev = "426271fb1bbe8aa88ff4010ca4d865b4b0438d90";
+      #     sha256 = "sha256-RXqEW+jwdul2mKX86Co6HLsb26UrYtLjT3FzmHnwfAA=";
+      #   };
+      # }
       {
         name = "fast-syntax-highlighting";
         file = "fast-syntax-highlighting.plugin.zsh";

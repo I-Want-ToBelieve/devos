@@ -2,3 +2,8 @@
 [manix]
 src.git = "https://github.com/mlvzk/manix"
 fetch.github = "mlvzk/manix"
+
+[swhkd]
+src.git = "https://github.com/waycrate/swhkd"
+fetch.github = "waycrate/swhkd"
+cargo_locks = ["Cargo.lock"]

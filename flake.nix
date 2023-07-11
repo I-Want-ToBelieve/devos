@@ -265,7 +265,7 @@
             kde-x11 = [display-managers.sddm desktop-environment.kde];
             kde-wayland = [display-managers.sddm desktop-environment.kde];
             hyprland = [display-managers.greetd];
-            misc = [network nix locale fonts stylixs systemd-shutdown-diagnose share-via-wifi samba];
+            misc = [network nix locale fonts stylixs systemd-shutdown-diagnose share-via-wifi samba swhkd];
             games = [game.steam game.uudeck];
           };
         };
@@ -322,8 +322,8 @@
             gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio zathura copyq looking-glass-client mpv];
             shells = with shells; [fish zsh nu];
             hyprland = with desktop; [dunst waybar window-managers.hyprland rofi swaylock mime];
-            kde-x11 = [desktop.plasma desktop.sxhkd desktop.bismuth desktop.kvantum];
-            kde-wayland = [desktop.plasma desktop.sxhkd desktop.bismuth desktop.kvantum];
+            kde-x11 = [desktop.plasma desktop.swhkd desktop.bismuth desktop.kvantum];
+            kde-wayland = [desktop.plasma desktop.swhkd desktop.bismuth desktop.kvantum];
           };
         };
         users = {

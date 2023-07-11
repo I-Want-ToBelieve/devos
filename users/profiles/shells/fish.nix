@@ -20,6 +20,7 @@
       set fish_cursor_visual block
       # @see https://github.com/yannjor/krabby
       krabby random;echo -e "\033[37m\033[0m";
+      bind --erase \ct
     '';
     shellAliases = {
       ls = "exa --sort type";
@@ -41,15 +42,15 @@
       };
     };
     plugins = with pkgs; [
-      {
-        name = "replay.fish";
-        src = fetchFromGitHub {
-          owner = "jorgebucaran";
-          repo = "replay.fish";
-          rev = "main";
-          sha256 = "bM6+oAd/HXaVgpJMut8bwqO54Le33hwO9qet9paK1kY=";
-        };
-      }
+      # {
+      #   name = "replay.fish";
+      #   src = fetchFromGitHub {
+      #     owner = "jorgebucaran";
+      #     repo = "replay.fish";
+      #     rev = "main";
+      #     sha256 = "bM6+oAd/HXaVgpJMut8bwqO54Le33hwO9qet9paK1kY=";
+      #   };
+      # }
     ];
   };
 }

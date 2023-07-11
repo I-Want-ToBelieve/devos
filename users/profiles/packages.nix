@@ -25,6 +25,7 @@
       findutils
       ffmpeg-full
       fzf
+      flameshot
       glib
       glxinfo
       gnumake
@@ -59,6 +60,7 @@
       python3
       rsync
       todo
+      tdrop
       thefuck
       trash-cli
       util-linux
@@ -87,6 +89,7 @@
       yt-dlp
     ]
     ++ (with pkgs.inur; [
+      autohide-tdrop
       krabby
       leagueoflegends
     ])
@@ -99,8 +102,8 @@
     exa.enable = true;
 
     fzf = {
-      enable = true;
-      enableBashIntegration = true;
+      enable = false;
+      enableBashIntegration = false;
       enableZshIntegration = false;
       enableFishIntegration = false;
     };
