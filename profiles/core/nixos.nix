@@ -164,7 +164,7 @@
   };
 
   services = {
-    blueman.enable = true;
+    blueman.enable = false;
     fwupd.enable = true;
     gvfs.enable = true;
     lorri.enable = true;

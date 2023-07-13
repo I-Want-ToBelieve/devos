@@ -1,10 +1,8 @@
 {
   pkgs,
-  lib,
   config,
   ...
-}:
-with lib; {
+}: {
   home = {
     sessionPath = [
       "${config.home.homeDirectory}/.local/bin"
