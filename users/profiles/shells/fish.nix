@@ -26,7 +26,8 @@
       ls = "exa --sort type";
       l = "ls -la";
       lt = "ls --tree";
-      ra = "ranger";
+      ra = "joshuto";
+      jo = "joshuto";
     };
     functions = {
       c = {

@@ -318,7 +318,7 @@
           profiles = digga.lib.rakeLeaves ./users/profiles;
           suites = with profiles; {
             base = [packages nix misc stylixs];
-            cli = with cli; [direnv git ssh starship helix neovim];
+            cli = with cli; [direnv git ssh starship helix neovim joshuto];
             gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio zathura copyq looking-glass-client mpv];
             shells = with shells; [fish zsh nu];
             hyprland = with desktop; [dunst waybar window-managers.hyprland rofi swaylock mime];

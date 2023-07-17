@@ -83,8 +83,6 @@
       du-dust
       fd
       file
-      joshuto
-      ranger
       ripgrep
       yt-dlp
     ]

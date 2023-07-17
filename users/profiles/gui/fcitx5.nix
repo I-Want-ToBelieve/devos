@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   # https://github.com/fkxxyz/rime-cloverpinyin/wiki/linux#%E5%88%87%E6%8D%A2%E5%88%B0%E8%AF%A5%E8%BE%93%E5%85%A5%E6%96%B9%E6%A1%88
   xdg.dataFile = {
-    "fcitx5/rime/default.custom.yaml".text = builtins.toJSON {
+    "fcitx5/rime/default.custom.yaml".source = (pkgs.formats.yaml {}).generate "default.custom" {
       patch = {
         "menu/page_size" = 5;
         schema_list = [{schema = "clover";}];
