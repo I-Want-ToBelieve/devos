@@ -102,7 +102,6 @@
   programs.bash = {
     # Enable starship
     promptInit = ''
-      eval "$(${pkgs.starship}/bin/starship init bash)"
     '';
 
     # Enable direnv, a tool for managing shell environments
@@ -164,7 +163,7 @@
   };
 
   services = {
-    blueman.enable = false;
+    blueman.enable = true;
     fwupd.enable = true;
     gvfs.enable = true;
     lorri.enable = true;

@@ -3,4 +3,5 @@ final: prev: {
   sources = prev.callPackage (import ./_sources/generated.nix) {};
   # then, call packages with `final.callPackage`
   swhkd = prev.callPackage ./applications/window-managers/swhkd {};
+  aliyunpan = prev.callPackage ./applications/cloud-drive/aliyunpan {};
 }

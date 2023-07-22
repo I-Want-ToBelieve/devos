@@ -37,7 +37,6 @@
 
     bluetooth = {
       enable = true;
-      package = pkgs.bluez;
     };
 
     enableRedistributableFirmware = true;
@@ -300,6 +299,7 @@
       DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1 = "1";
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
       QT_LOGGING_RULES = "kwin_*.debug=true";
+      ALIYUNPAN_CONFIG_DIR = "$HOME/.config/aliyunpan";
     };
 
     sessionVariables = {

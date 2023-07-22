@@ -1,4 +1,24 @@
 {
+  "aliyunpan": {
+    "cargoLocks": null,
+    "date": "2023-04-30",
+    "extract": null,
+    "name": "aliyunpan",
+    "passthru": null,
+    "pinned": false,
+    "src": {
+      "deepClone": false,
+      "fetchSubmodules": false,
+      "leaveDotGit": false,
+      "name": null,
+      "owner": "tickstep",
+      "repo": "aliyunpan",
+      "rev": "0edf7d0af277d16961f2b366183d74d4a419efda",
+      "sha256": "sha256-Vxr7H6Y77WWMHu7vxLptRlOodK7iidaBTjSivY4WgzI=",
+      "type": "github"
+    },
+    "version": "0edf7d0af277d16961f2b366183d74d4a419efda"
+  },
   "manix": {
     "cargoLocks": null,
     "date": "2021-04-20",

@@ -3,7 +3,12 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  github520 = pkgs.fetchgit {
+    url = "https://gitee.com/klmahuaw/GitHub520";
+    sha256 = "sha256-n2OMx6maTRi4XLCqFSx9BFXSDRGS0VP5CuJkNbj2y68=";
+  };
+in {
   networking = {
     networkmanager = {
       enable = true;
@@ -11,21 +16,26 @@
       wifi.macAddress = "random";
     };
 
-    extraHosts = ''
-      #------------ wfhosts -------------
-      # https://docs.zichou.eu.org/wfhosts
+    extraHosts = builtins.concatStringsSep "\n" [
+      ''
+        #------------ wfhosts -------------
+        # https://docs.zichou.eu.org/wfhosts
 
-      # 解决登录问题
-      205.185.216.42 content.warframe.com
+        # 解决登录问题
+        205.185.216.42 content.warframe.com
 
-      # 香港 (国内裸连 + 加速器)
-      23.66.153.77 origin.warframe.com
-      23.66.153.77 api.warframe.com
-      23.66.153.77 arbiter.warframe.com
-      # 23.194.224.167
+        # 香港 (国内裸连 + 加速器)
+        23.66.153.77 origin.warframe.com
+        23.66.153.77 api.warframe.com
+        23.66.153.77 arbiter.warframe.com
+        # 23.194.224.167
 
-      # 编辑日期: 2023-05-14
-    '';
+        # 编辑日期: 2023-05-14
+      ''
+
+      # https://gitee.com/klmahuaw/GitHub520/
+      (builtins.readFile "${github520}/hosts")
+    ];
 
     firewall = {
       enable = false;

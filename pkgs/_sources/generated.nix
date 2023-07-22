@@ -5,6 +5,18 @@
   fetchFromGitHub,
   dockerTools,
 }: {
+  aliyunpan = {
+    pname = "aliyunpan";
+    version = "0edf7d0af277d16961f2b366183d74d4a419efda";
+    src = fetchFromGitHub {
+      owner = "tickstep";
+      repo = "aliyunpan";
+      rev = "0edf7d0af277d16961f2b366183d74d4a419efda";
+      fetchSubmodules = false;
+      sha256 = "sha256-Vxr7H6Y77WWMHu7vxLptRlOodK7iidaBTjSivY4WgzI=";
+    };
+    date = "2023-04-30";
+  };
   manix = {
     pname = "manix";
     version = "d08e7ca185445b929f097f8bfb1243a8ef3e10e4";

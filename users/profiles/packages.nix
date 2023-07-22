@@ -10,6 +10,7 @@
       alsa-plugins
       alsa-tools
       alsa-utils
+      aliyunpan
       bandwhich
       bc
       blueberry
@@ -22,6 +23,7 @@
       comma
       dconf
       droidcam
+      filelight
       findutils
       ffmpeg-full
       fzf
@@ -59,6 +61,7 @@
       pulseaudio
       python3
       rsync
+      scrcpy
       todo
       tdrop
       thefuck
@@ -118,6 +121,7 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
+      enableNushellIntegration = true;
     };
 
     dircolors = {
