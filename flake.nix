@@ -308,7 +308,6 @@
         imports = [(digga.lib.importExportableModules ./users/modules)];
         modules =
           [
-            inputs.hyprland.homeManagerModules.default
             inputs.plasma-manager.homeManagerModules.plasma-manager
           ]
           ++ [
