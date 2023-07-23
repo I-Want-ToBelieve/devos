@@ -8,14 +8,28 @@
   self,
   modulesPath,
   ...
-}: {
+}: let
+  gpuIDs = [
+    "1002:73df" # Graphics
+    "1002:ab28" # Audio
+  ];
+in {
   imports =
     [(modulesPath + "/installer/scan/not-detected.nix")]
     ++ [
       inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
       inputs.nixos-hardware.nixosModules.common-gpu-intel
-      inputs.nixos-hardware.nixosModules.common-gpu-amd
+      # inputs.nixos-hardware.nixosModules.common-gpu-amd
     ];
+
+  specialisation = {
+    gpupass = {
+      configuration = {
+        system.nixos.tags = ["with-gpupass"];
+        gpupass.enable = true;
+      };
+    };
+  };
 
   # amd gpu
   boot.blacklistedKernelModules = ["nouveau" "nvidia"];
@@ -29,13 +43,12 @@
       enable = true;
     };
 
-    amdgpu = {
-      amdvlk = true;
-      opencl = true;
-      loadInInitrd = true;
+    bluetooth = {
+      enable = true;
     };
 
-    bluetooth = {
+    # @see https://discourse.nixos.org/t/how-to-enable-ddc-brightness-control-i2c-permissions/20800/12
+    i2c = {
       enable = true;
     };
 
@@ -72,15 +85,19 @@
     '';
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "intel_iommu=on"
-      # "i915.enable_gvt=1"
-      # "i915.enable_guc=0"
-      "iommu=pt"
-      # "earlymodules=vfio-pci"
-      # "vfio-pci.ids=8086:1912"
-      "pcie_aspm=off"
-    ];
+    kernelParams =
+      [
+        "intel_iommu=on"
+        # "i915.enable_gvt=1"
+        # "i915.enable_guc=0"
+        "iommu=pt"
+        # "earlymodules=vfio-pci"
+        # "vfio-pci.ids=8086:1912"
+        "pcie_aspm=off"
+      ]
+      ++ lib.optional true
+      # isolate the GPU
+      ("vfio-pci.ids=" + lib.concatStringsSep "," gpuIDs);
 
     supportedFilesystems = ["btrfs" "ntfs"];
 
