@@ -28,7 +28,13 @@
 
     hardware =
       if cfg.enable
-      then {}
+      then {
+        amdgpu = {
+          amdvlk = lib.mkForce false;
+          opencl = lib.mkForce false;
+          loadInInitrd = lib.mkForce false;
+        };
+      }
       else {
       };
   };

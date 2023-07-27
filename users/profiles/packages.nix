@@ -22,7 +22,9 @@
       coreutils
       comma
       dconf
+      ddcutil
       droidcam
+      filebrowser
       filelight
       findutils
       ffmpeg-full
@@ -62,6 +64,7 @@
       python3
       rsync
       scrcpy
+      scream
       todo
       tdrop
       thefuck

@@ -8,18 +8,13 @@
   self,
   modulesPath,
   ...
-}: let
-  gpuIDs = [
-    "1002:73df" # Graphics
-    "1002:ab28" # Audio
-  ];
-in {
+}: {
   imports =
     [(modulesPath + "/installer/scan/not-detected.nix")]
     ++ [
       inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
       inputs.nixos-hardware.nixosModules.common-gpu-intel
-      # inputs.nixos-hardware.nixosModules.common-gpu-amd
+      inputs.nixos-hardware.nixosModules.common-gpu-amd
     ];
 
   specialisation = {
@@ -39,6 +34,12 @@ in {
   ];
 
   hardware = {
+    amdgpu = {
+      amdvlk = true;
+      opencl = true;
+      loadInInitrd = true;
+    };
+
     opengl = {
       enable = true;
     };
@@ -85,19 +86,15 @@ in {
     '';
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams =
-      [
-        "intel_iommu=on"
-        # "i915.enable_gvt=1"
-        # "i915.enable_guc=0"
-        "iommu=pt"
-        # "earlymodules=vfio-pci"
-        # "vfio-pci.ids=8086:1912"
-        "pcie_aspm=off"
-      ]
-      ++ lib.optional true
-      # isolate the GPU
-      ("vfio-pci.ids=" + lib.concatStringsSep "," gpuIDs);
+    kernelParams = [
+      "intel_iommu=on"
+      # "i915.enable_gvt=1"
+      # "i915.enable_guc=0"
+      "iommu=pt"
+      # "earlymodules=vfio-pci"
+      # "vfio-pci.ids=8086:1912"
+      "pcie_aspm=off"
+    ];
 
     supportedFilesystems = ["btrfs" "ntfs"];
 
@@ -278,7 +275,7 @@ in {
     };
 
     kvmgt = {
-      enable = true;
+      enable = !config.gpupass.enable;
       vgpus = {
         "i915-GVTg_V5_4" = {
           uuid = ["179881f8-f4d8-11ed-8914-23e4dfd5da5b"];
