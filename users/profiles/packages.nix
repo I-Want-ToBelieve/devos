@@ -11,6 +11,7 @@
       alsa-tools
       alsa-utils
       aliyunpan
+      aria
       bandwhich
       bc
       blueberry
@@ -41,6 +42,9 @@
       hyperfine
       imagemagick
       inotify-tools
+      ipset
+      iproute2
+      iptables
       keepassxc
       killall
 
@@ -79,6 +83,7 @@
       xclip
       xdg-utils
       xh
+      xz
       xorg.xhost
       yesplaymusic
       yuzu-ea
