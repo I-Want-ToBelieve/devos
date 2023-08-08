@@ -1,6 +1,8 @@
 {
   rustPlatform,
   makeWrapper,
+  pkg-config,
+  udev,
   sources,
 }: let
   inherit (sources.swhkd) pname src version cargoLock;
@@ -10,7 +12,11 @@ in
 
     cargoLock = cargoLock."Cargo.lock";
 
-    nativeBuildInputs = [makeWrapper];
+    # @see https://github.com/waycrate/swhkd/blob/2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526/flake.nix#L21
+    nativeBuildInputs = [makeWrapper pkg-config];
+
+    # @see https://discourse.nixos.org/t/solved-libudev-replaced-by-udev/18951/2
+    buildInputs = [udev];
 
     postBuild = ''
       ./scripts/build-polkit-policy.sh \

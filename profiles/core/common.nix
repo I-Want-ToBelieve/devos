@@ -83,7 +83,7 @@ in {
     };
   };
 
-  fonts.fonts = with pkgs; [powerline-fonts dejavu_fonts];
+  fonts.packages = with pkgs; [powerline-fonts dejavu_fonts];
 
   nix = {
     # Improve nix store disk usage

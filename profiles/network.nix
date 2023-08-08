@@ -6,7 +6,7 @@
 }: let
   github520 = pkgs.fetchgit {
     url = "https://gitee.com/klmahuaw/GitHub520";
-    sha256 = "sha256-n2OMx6maTRi4XLCqFSx9BFXSDRGS0VP5CuJkNbj2y68=";
+    sha256 = "sha256-gp2iRB4bqvolMiJEQsDnjM7GaenyaE0eNQ/3yvOjhtc=";
   };
 in {
   networking = {

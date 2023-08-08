@@ -10,7 +10,7 @@
     (libsForQt5.bismuth.overrideAttrs
       (finalAttrs: previousAttrs: {
         src = /home/i.want.to.believe/git.workspaces/any.workspaces/bismuth/.;
-        version = "5.0.6";
+        version = "5.0.8";
       }))
   ];
 }

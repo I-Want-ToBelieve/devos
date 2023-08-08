@@ -42,11 +42,11 @@
   "swhkd": {
     "cargoLocks": {
       "Cargo.lock": [
-        "./swhkd-ddada68da7feeef26acad47ec4194c6315b4fccb/Cargo.lock",
+        "./swhkd-2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526/Cargo.lock",
         {}
       ]
     },
-    "date": "2023-06-30",
+    "date": "2023-07-29",
     "extract": null,
     "name": "swhkd",
     "passthru": null,
@@ -58,10 +58,10 @@
       "name": null,
       "owner": "waycrate",
       "repo": "swhkd",
-      "rev": "ddada68da7feeef26acad47ec4194c6315b4fccb",
-      "sha256": "sha256-JV/fUnS+7EsyrthEs3ABUBN291VUPjnKG1GsmrG53vI=",
+      "rev": "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526",
+      "sha256": "sha256-6kTRAUP///EwIkF1QkQByHqHW55u2L2Gv3c+B5z3e5U=",
       "type": "github"
     },
-    "version": "ddada68da7feeef26acad47ec4194c6315b4fccb"
+    "version": "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526"
   }
 }

@@ -6,4 +6,5 @@
   stylix.targets.swaylock.enable = false;
   stylix.targets.vim.enable = false;
   stylix.targets.gtk.enable = false;
+  stylix.targets.kde.enable = false;
 }

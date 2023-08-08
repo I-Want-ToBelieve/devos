@@ -21,7 +21,6 @@
       cached-nix-shell
       cinnamon.nemo
       coreutils
-      comma
       dconf
       ddcutil
       droidcam
@@ -31,6 +30,8 @@
       ffmpeg-full
       fzf
       flameshot
+      goverlay
+      gamemode
       glib
       glxinfo
       gnumake

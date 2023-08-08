@@ -168,8 +168,6 @@
     gotests
     go-outline
     go-tools
-    java-language-server
-    kotlin-language-server
     ktlint
     lldb
     nodejs

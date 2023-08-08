@@ -4,7 +4,7 @@
   ...
 }: {
   fonts = {
-    fonts = lib.attrValues {
+    packages = lib.attrValues {
       inherit
         (pkgs)
         emacs-all-the-icons-fonts

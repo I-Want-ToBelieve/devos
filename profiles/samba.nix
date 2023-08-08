@@ -31,7 +31,7 @@
 
     shares = {
       public = {
-        path = "/mnt/Shares/Public";
+        path = "/mnt/share";
         browseable = "yes";
         "read only" = "no";
         "guest ok" = "yes";

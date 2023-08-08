@@ -31,6 +31,10 @@
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
     "f /dev/shm/looking-glass 0660 i.want.to.believe qemu-libvirtd -"
+    # after exec:
+    # sudo chmod -R 1777 /mnt/share/
+    # sudo chown -R root /mnt/share/
+    "d /mnt/share 1777 root root -"
   ];
 
   hardware = {

@@ -31,19 +31,19 @@
   };
   swhkd = {
     pname = "swhkd";
-    version = "ddada68da7feeef26acad47ec4194c6315b4fccb";
+    version = "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526";
     src = fetchFromGitHub {
       owner = "waycrate";
       repo = "swhkd";
-      rev = "ddada68da7feeef26acad47ec4194c6315b4fccb";
+      rev = "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526";
       fetchSubmodules = false;
-      sha256 = "sha256-JV/fUnS+7EsyrthEs3ABUBN291VUPjnKG1GsmrG53vI=";
+      sha256 = "sha256-6kTRAUP///EwIkF1QkQByHqHW55u2L2Gv3c+B5z3e5U=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./swhkd-ddada68da7feeef26acad47ec4194c6315b4fccb/Cargo.lock;
+      lockFile = ./swhkd-2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526/Cargo.lock;
       outputHashes = {
       };
     };
-    date = "2023-06-30";
+    date = "2023-07-29";
   };
 }

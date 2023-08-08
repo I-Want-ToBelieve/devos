@@ -1,30 +1,6 @@
 {
   description = "A highly structured configuration database.";
 
-  nixConfig = {
-    extra-experimental-features = "nix-command flakes";
-    extra-substituters = [
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
-      "https://cache.nixos.org"
-      "https://nix-community.cachix.org"
-      "https://fortuneteller2k.cachix.org"
-      "https://nixpkgs-wayland.cachix.org"
-      "https://helix.cachix.org"
-      "https://hyprland.cachix.org"
-      "https://nrdxp.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
-      "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4="
-    ];
-  };
-
   inputs = {
     flake-compat = {
       url = "github:edolstra/flake-compat";
@@ -108,6 +84,10 @@
     # Stylix is a NixOS module which applies the same color scheme, font and wallpaper to a wide range of applications and desktop environments. It also exports utilities for you to use the theme in custom parts of your configuration.
     # https://danth.github.io/stylix/installation.html
     stylix.url = "github:danth/stylix";
+
+    # @see https://github.com/nix-community/nix-index-database#usage-in-home-manager
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "latest";
   };
 
   outputs = {
@@ -133,7 +113,7 @@
 
       channelsConfig = {
         allowUnfree = true;
-        permittedInsecurePackages = ["electron-13.6.9" "electron-19.0.7" "openssl-1.1.1u"];
+        permittedInsecurePackages = ["electron-13.6.9" "electron-19.0.7" "openssl-1.1.1v"];
       };
 
       channels = {
@@ -265,7 +245,7 @@
             kde-x11 = [display-managers.sddm desktop-environment.kde];
             kde-wayland = [display-managers.sddm desktop-environment.kde];
             hyprland = [display-managers.greetd];
-            misc = [network nix locale fonts stylixs systemd-shutdown-diagnose share-via-wifi samba swhkd];
+            misc = [network nix locale fonts stylixs share-via-wifi samba swhkd];
             games = [game.steam game.uudeck];
           };
         };
@@ -311,14 +291,18 @@
             inputs.plasma-manager.homeManagerModules.plasma-manager
           ]
           ++ [
+            inputs.nix-index-database.hmModules.nix-index
+            {programs.nix-index-database.comma.enable = true;}
+          ]
+          ++ [
             {home.stateVersion = "23.05";}
           ];
         importables = rec {
           profiles = digga.lib.rakeLeaves ./users/profiles;
           suites = with profiles; {
             base = [packages nix misc stylixs];
-            cli = with cli; [direnv git ssh starship helix neovim joshuto];
-            gui = with gui; [firefox discord fcitx5 kitty mpd obs-studio zathura copyq looking-glass-client mpv];
+            cli = with cli; [direnv git ssh starship helix neovim joshuto mangohud];
+            gui = with gui; [firefox fcitx5 kitty mpd obs-studio zathura copyq looking-glass-client mpv];
             shells = with shells; [fish zsh nu];
             hyprland = with desktop; [dunst waybar window-managers.hyprland rofi swaylock mime];
             kde-x11 = [desktop.plasma desktop.swhkd desktop.bismuth desktop.kvantum];
@@ -380,4 +364,28 @@
 
       outputsBuilder = channels: {formatter = channels.latest.treefmt;};
     };
+
+  nixConfig = {
+    extra-experimental-features = "nix-command flakes";
+    extra-substituters = [
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+      "https://fortuneteller2k.cachix.org"
+      "https://nixpkgs-wayland.cachix.org"
+      "https://helix.cachix.org"
+      "https://hyprland.cachix.org"
+      "https://nrdxp.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
+      "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4="
+    ];
+  };
 }

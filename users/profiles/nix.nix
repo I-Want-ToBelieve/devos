@@ -9,7 +9,6 @@
     packages = with pkgs; [
       alejandra
       deadnix
-      nix-index
       statix
     ];
 
