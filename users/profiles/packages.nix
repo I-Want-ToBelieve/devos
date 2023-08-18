@@ -24,6 +24,8 @@
       dconf
       ddcutil
       droidcam
+      distrobox
+      evtest
       filebrowser
       filelight
       findutils

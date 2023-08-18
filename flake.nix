@@ -300,7 +300,7 @@
         importables = rec {
           profiles = digga.lib.rakeLeaves ./users/profiles;
           suites = with profiles; {
-            base = [packages nix misc stylixs];
+            base = [packages nix misc stylixs fonts];
             cli = with cli; [direnv git ssh starship helix neovim joshuto mangohud];
             gui = with gui; [firefox fcitx5 kitty mpd obs-studio zathura copyq looking-glass-client mpv];
             shells = with shells; [fish zsh nu];

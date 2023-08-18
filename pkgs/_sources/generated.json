@@ -39,6 +39,26 @@
     },
     "version": "d08e7ca185445b929f097f8bfb1243a8ef3e10e4"
   },
+  "mpv-iptvplus": {
+    "cargoLocks": null,
+    "date": "2023-01-04",
+    "extract": null,
+    "name": "mpv-iptvplus",
+    "passthru": null,
+    "pinned": false,
+    "src": {
+      "deepClone": false,
+      "fetchSubmodules": false,
+      "leaveDotGit": false,
+      "name": null,
+      "owner": "pintassilgo",
+      "repo": "mpv-iptvplus",
+      "rev": "e4fde04bbad4573b94695df6409edf6e88ecdb3c",
+      "sha256": "sha256-+LTp2eTVow+ib0/+8YZkxZ+X4LI8bFxT/i05XeEFBx8=",
+      "type": "github"
+    },
+    "version": "e4fde04bbad4573b94695df6409edf6e88ecdb3c"
+  },
   "swhkd": {
     "cargoLocks": {
       "Cargo.lock": [

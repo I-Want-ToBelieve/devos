@@ -29,6 +29,18 @@
     };
     date = "2021-04-20";
   };
+  mpv-iptvplus = {
+    pname = "mpv-iptvplus";
+    version = "e4fde04bbad4573b94695df6409edf6e88ecdb3c";
+    src = fetchFromGitHub {
+      owner = "pintassilgo";
+      repo = "mpv-iptvplus";
+      rev = "e4fde04bbad4573b94695df6409edf6e88ecdb3c";
+      fetchSubmodules = false;
+      sha256 = "sha256-+LTp2eTVow+ib0/+8YZkxZ+X4LI8bFxT/i05XeEFBx8=";
+    };
+    date = "2023-01-04";
+  };
   swhkd = {
     pname = "swhkd";
     version = "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526";

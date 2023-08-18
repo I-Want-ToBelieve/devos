@@ -15,6 +15,7 @@
         noto-fonts-cjk
         noto-fonts-emoji
         sf-mono-liga
+        dejavu_fonts
         twemoji-color-font
         wqy_microhei
         lxgw-wenkai
