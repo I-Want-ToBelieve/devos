@@ -245,7 +245,7 @@
             kde-x11 = [display-managers.sddm desktop-environment.kde];
             kde-wayland = [display-managers.sddm desktop-environment.kde];
             hyprland = [display-managers.greetd];
-            misc = [network nix locale fonts stylixs share-via-wifi samba swhkd];
+            misc = [network nix locale fonts stylixs share-via-wifi samba];
             games = [game.steam game.uudeck];
           };
         };
@@ -301,12 +301,12 @@
           profiles = digga.lib.rakeLeaves ./users/profiles;
           suites = with profiles; {
             base = [packages nix misc stylixs fonts];
-            cli = with cli; [direnv git ssh starship helix neovim joshuto mangohud];
+            cli = with cli; [direnv git ssh starship helix neovim joshuto mangohud aria2];
             gui = with gui; [firefox fcitx5 kitty mpd obs-studio zathura copyq looking-glass-client mpv];
             shells = with shells; [fish zsh nu];
             hyprland = with desktop; [dunst waybar window-managers.hyprland rofi swaylock mime];
-            kde-x11 = [desktop.plasma desktop.swhkd desktop.bismuth desktop.kvantum];
-            kde-wayland = [desktop.plasma desktop.swhkd desktop.bismuth desktop.kvantum];
+            kde-x11 = [desktop.plasma desktop.bismuth desktop.kvantum];
+            kde-wayland = [desktop.plasma desktop.bismuth desktop.kvantum];
           };
         };
         users = {

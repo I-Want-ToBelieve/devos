@@ -84,21 +84,6 @@
     };
   };
 
-  nix = {
-    settings = {
-      # Prevent impurities in builds
-      sandbox = true;
-
-      # Give root user and wheel group special Nix privileges.
-      trusted-users = ["root" "@wheel"];
-      allowed-users = ["@wheel"];
-    };
-
-    # Improve nix store disk usage
-    settings.auto-optimise-store = true;
-    optimise.automatic = true;
-  };
-
   programs.bash = {
     # Enable starship
     promptInit = ''
@@ -163,7 +148,7 @@
   };
 
   services = {
-    blueman.enable = true;
+    blueman.enable = false;
     fwupd.enable = true;
     gvfs.enable = true;
     lorri.enable = true;

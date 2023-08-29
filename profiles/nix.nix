@@ -52,10 +52,15 @@
       max-free = ${toString (1024 * 1024 * 1024)}
     '';
 
+    optimise.automatic = true;
+
     settings = {
+      # Improve nix store disk usage
+      sandbox = true;
       auto-optimise-store = true;
       builders-use-substitutes = true;
       trusted-users = ["root" "@wheel"];
+      allowed-users = ["@wheel"];
       max-jobs = "auto";
       flake-registry = "/etc/nix/registry.json";
 

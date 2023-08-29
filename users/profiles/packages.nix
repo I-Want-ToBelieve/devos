@@ -11,10 +11,8 @@
       alsa-tools
       alsa-utils
       aliyunpan
-      aria
       bandwhich
       bc
-      blueberry
       btop
       bottom
       cairo
@@ -106,7 +104,6 @@
       leagueoflegends
     ])
     ++ (with pkgs.nur.repos; [
-      xddxdd.wechat-uos
       xddxdd.baidupcs-go
     ]);
 
