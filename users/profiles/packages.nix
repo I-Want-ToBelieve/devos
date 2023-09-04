@@ -40,6 +40,9 @@
       gnutls
       google-chrome
       grex
+
+      gtk3-nocsd
+
       hyperfine
       imagemagick
       inotify-tools
@@ -53,6 +56,7 @@
       libappindicator
       libnotify
       libsecret
+      localsend
       # libreoffice-fresh
       lutris
       microsoft-edge
@@ -66,7 +70,8 @@
       psmisc
       pavucontrol
       pulseaudio
-      python3
+      (pkgs.python39.withPackages
+        (pythonPackages: with pythonPackages; [requests websockets]))
       rsync
       scrcpy
       scream
@@ -76,6 +81,7 @@
       trash-cli
       util-linux
       vscode
+
       wineWowPackages.fonts
       wineWowPackages.unstableFull
       winetricks

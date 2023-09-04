@@ -41,15 +41,6 @@
       wheel_scroll_multiplier = "5.0";
       touch_scroll_multiplier = "1.0";
 
-      # Tab bar
-      tab_bar_min_tabs = 1;
-      tab_bar_edge = "bottom";
-      tab_bar_style = "powerline";
-      tab_powerline_style = "slanted";
-      tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
-      active_tab_font_style = "bold";
-      inactive_tab_font_style = "normal";
-
       # Cursor
       cursor_shape = "underline";
       cursor_beam_thickness = "1.2";
@@ -68,6 +59,21 @@
       adjust_column_width = "0";
       box_drawing_scale = "0.001, 1, 1.5, 2";
     };
+
+    extraConfig = lib.mkAfter ''
+      # Tab bar
+      tab_bar_style fade
+      bell_on_tab yes
+      tab_bar_edge bottom
+      tab_title_template {index}: {title}
+
+      active_tab_background #5f9373
+      active_tab_font_style bold-italic
+
+      inactive_tab_foreground #444
+      inactive_tab_background #999
+      inactive_tab_font_style bold
+    '';
 
     # Keys
     keybindings = {

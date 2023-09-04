@@ -50,6 +50,7 @@ in {
       "vboxusers"
       "wireshark"
       "mysql"
+      "lxd" # waydroid
     ];
   };
 }

@@ -72,4 +72,16 @@
       };
     };
   };
+
+  gtk = {
+    enable = true;
+    # gtk3.extraCss = ''
+    #   .titlebar, .css, headerbar{
+    #     background-image:none;
+    #     background-color:transparent;
+    #     margin-top:-100px;
+    #     margin-bottom:50px;
+    #   }
+    # '';
+  };
 }

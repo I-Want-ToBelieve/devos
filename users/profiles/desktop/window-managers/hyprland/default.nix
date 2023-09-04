@@ -21,6 +21,7 @@ in {
       ocrScript
       pngquant
       python39Packages.requests
+      python39Packages.websockets
       slurp
       swayidle
       tesseract5

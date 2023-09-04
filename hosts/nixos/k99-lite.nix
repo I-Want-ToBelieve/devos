@@ -71,17 +71,10 @@
   };
 
   # services.xserver.videoDrivers = ["amdgpu"];
-  # @see https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
-  # @see https://viniciusmuller.github.io/blog/NixOS/gpu_passthrough.html#identifying-iommu-devices
-  # @see https://nixos.wiki/wiki/IGVT-g
+
   boot = {
     kernelModules = [
-      "kvm-intel" # If using an AMD processor, use `kvm-amd`
-      "vfio_pci"
-      "vfio_iommu_type1"
-      "vfio-mdev"
-      "vfio_virqfd"
-      "vfio"
+      "kvm-intel" # If using an AMD CPU, use `kvm-amd`
       # https://www.reddit.com/r/NixOS/comments/p8bqvu/how_to_install_v4l2looback_kernel_module/?onetap_auto=true
       # Virtual Camera
       "v4l2loopback"
@@ -122,7 +115,19 @@
           "usb_storage"
         ]
         ++ config.boot.initrd.luks.cryptoModules;
-      kernelModules = ["dm-snapshot"];
+      kernelModules =
+        ["dm-snapshot"]
+        ++
+        # @see https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
+        # @see https://viniciusmuller.github.io/blog/NixOS/gpu_passthrough.html#identifying-iommu-devices
+        # @see https://nixos.wiki/wiki/IGVT-g
+        [
+          "vfio_pci"
+          "vfio"
+          "vfio_iommu_type1"
+          "vfio-mdev"
+          "vfio_virqfd"
+        ];
       luks.devices.luksroot = {
         device = "/dev/disk/by-label/cryptroot";
         preLVM = true;
@@ -296,6 +301,8 @@
       };
     };
   };
+
+  systemd.enableUnifiedCgroupHierarchy = lib.mkForce true;
 
   services = {
     btrfs.autoScrub.enable = true;

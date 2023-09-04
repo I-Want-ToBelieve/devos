@@ -27,6 +27,8 @@
       hosts deny = 0.0.0.0/0
       guest account = nobody
       map to guest = bad user
+
+      allow insecure wide links = yes
     '';
 
     shares = {
@@ -39,6 +41,10 @@
         "guest only" = "yes";
         "create mask" = "0644";
         "directory mask" = "0755";
+      };
+      share = {
+        "follow symlinks" = "yes";
+        "wide links" = "yes";
       };
     };
   };

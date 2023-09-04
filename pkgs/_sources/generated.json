@@ -19,6 +19,26 @@
     },
     "version": "0edf7d0af277d16961f2b366183d74d4a419efda"
   },
+  "gtk3-nocsd": {
+    "cargoLocks": null,
+    "date": "2021-06-23",
+    "extract": null,
+    "name": "gtk3-nocsd",
+    "passthru": null,
+    "pinned": false,
+    "src": {
+      "deepClone": false,
+      "fetchSubmodules": false,
+      "leaveDotGit": false,
+      "name": null,
+      "owner": "ZaWertun",
+      "repo": "gtk3-nocsd",
+      "rev": "512c2bd866d71def6ffd4d85ca98ae12fe989c62",
+      "sha256": "sha256-BOsQqxaVdC5O6EnB3KZinKSj0U5mCcX8HSjRmSBUFks=",
+      "type": "github"
+    },
+    "version": "512c2bd866d71def6ffd4d85ca98ae12fe989c62"
+  },
   "manix": {
     "cargoLocks": null,
     "date": "2021-04-20",
@@ -83,5 +103,25 @@
       "type": "github"
     },
     "version": "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526"
+  },
+  "wallpaper-engine-kde-plugin": {
+    "cargoLocks": null,
+    "date": "2023-08-06",
+    "extract": null,
+    "name": "wallpaper-engine-kde-plugin",
+    "passthru": null,
+    "pinned": false,
+    "src": {
+      "deepClone": false,
+      "fetchSubmodules": true,
+      "leaveDotGit": false,
+      "name": null,
+      "owner": "catsout",
+      "repo": "wallpaper-engine-kde-plugin",
+      "rev": "f972b2a24c9c3cc2d3e4f41d2ebd14f1473cebdf",
+      "sha256": "sha256-BVtTnJA1RLUU/Tj7WI/80ja4pI8NezHCjKvB72VjrZk=",
+      "type": "github"
+    },
+    "version": "f972b2a24c9c3cc2d3e4f41d2ebd14f1473cebdf"
   }
 }

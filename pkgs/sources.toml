@@ -15,3 +15,13 @@ fetch.github = "tickstep/aliyunpan"
 [mpv-iptvplus]
 src.git = "https://github.com/pintassilgo/mpv-iptvplus.git"
 fetch.github = "pintassilgo/mpv-iptvplus"
+
+[wallpaper-engine-kde-plugin]
+src.git = "https://github.com/catsout/wallpaper-engine-kde-plugin.git"
+fetch.github = "catsout/wallpaper-engine-kde-plugin"
+git.fetchSubmodules = true
+
+
+[gtk3-nocsd]
+src.git = "https://github.com/ZaWertun/gtk3-nocsd.git"
+fetch.github = "ZaWertun/gtk3-nocsd"
