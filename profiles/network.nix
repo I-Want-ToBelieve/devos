@@ -4,9 +4,9 @@
   lib,
   ...
 }: let
-  github520 = pkgs.fetchgit {
-    url = "https://gitee.com/klmahuaw/GitHub520";
-    sha256 = "sha256-gp2iRB4bqvolMiJEQsDnjM7GaenyaE0eNQ/3yvOjhtc=";
+  github520 = pkgs.fetchurl {
+    url = "https://raw.hellogithub.com/hosts";
+    sha256 = "14wbm368vm15p7psvif52cl6c76kv4wzwrwzxx2q2f8yssvgqaxq";
   };
 in {
   networking = {
@@ -34,7 +34,7 @@ in {
       ''
 
       # https://gitee.com/klmahuaw/GitHub520/
-      (builtins.readFile "${github520}/hosts")
+      (builtins.readFile "${github520}")
     ];
 
     firewall = {

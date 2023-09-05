@@ -125,8 +125,8 @@
           "vfio_pci"
           "vfio"
           "vfio_iommu_type1"
-          "vfio-mdev"
-          "vfio_virqfd"
+          # "vfio-mdev"
+          # "vfio_virqfd"
         ];
       luks.devices.luksroot = {
         device = "/dev/disk/by-label/cryptroot";

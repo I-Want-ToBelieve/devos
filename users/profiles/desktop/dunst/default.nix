@@ -106,7 +106,7 @@ in {
         separator_height = 2;
         frame_width = 2;
         frame_color = "#313244";
-        separator_color = "frame";
+        # separator_color = "frame";
         corner_radius = 8;
         transparency = 0;
         gap_size = 8;
@@ -116,7 +116,7 @@ in {
         history_length = 20;
         show_age_threshold = 60;
         markup = "full";
-        font = "monospace 10";
+        # font = "monospace 10";
         format = "<span size='x-large' font_desc='monospace 9' weight='bold' foreground='#cdd6f4'>%a</span>\\n%s\\n%b";
         word_wrap = "yes";
         sort = "yes";
@@ -140,19 +140,19 @@ in {
 
       urgency_low = {
         timeout = 3;
-        background = "#1e1e2e";
+        # background = "#1e1e2e";
         foreground = "#cdd6f4";
         highlight = "#cba6f7";
       };
       urgency_normal = {
         timeout = 6;
-        background = "#1e1e2e";
+        # background = "#1e1e2e";
         foreground = "#cdd6f4";
         highlight = "#cba6f7";
       };
       urgency_critical = {
         timeout = 0;
-        background = "#1e1e2e";
+        # background = "#1e1e2e";
         foreground = "#cdd6f4";
         highlight = "#cba6f7";
       };
