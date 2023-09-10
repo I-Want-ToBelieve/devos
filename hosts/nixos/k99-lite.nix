@@ -217,6 +217,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/var/lib/containers" = {
+    device = "/dev/disk/by-label/containers";
+    fsType = "ext4";
+  };
+
   fileSystems."/home/i.want.to.believe/Games" = {
     device = "/dev/disk/by-label/SG";
     fsType = "ext4";
