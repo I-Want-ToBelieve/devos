@@ -30,7 +30,7 @@
 
     variables = {
       EDITOR = "nvim";
-      BROWSER = "google-chrome-stable";
+      BROWSER = "firefox";
     };
 
     # Selection of sysadmin tools that can come in handy
@@ -128,7 +128,6 @@
   services.earlyoom.enable = true;
 
   programs = {
-    adb.enable = true;
     dconf.enable = true;
     nm-applet.enable = true;
     seahorse.enable = true;
@@ -139,11 +138,6 @@
         prefix = ''${HOME}/.npm
         color = true
       '';
-    };
-
-    java = {
-      enable = true;
-      package = pkgs.jre;
     };
   };
 

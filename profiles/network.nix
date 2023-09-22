@@ -6,7 +6,7 @@
 }: let
   github520 = pkgs.fetchurl {
     url = "https://raw.hellogithub.com/hosts";
-    sha256 = "sha256-tYVo9bYfiKmnbefZAZXVGS7qkt19AYwaMoKew6EZBao=";
+    sha256 = "sha256-9QkYsV6vldJIcH/iWs4DuAGyPKZnwjuYQk21cVjAkUI=";
   };
 in {
   networking = {
@@ -18,11 +18,11 @@ in {
 
     extraHosts = builtins.concatStringsSep "\n" [
       ''
-        #------------ wfhosts -------------
+        #------------ warframe hosts -------------
         # https://docs.zichou.eu.org/wfhosts
 
         # 解决登录问题
-        205.185.216.42 content.warframe.com
+        121.201.75.174 content.warframe.com
 
         # 香港 (国内裸连 + 加速器)
         23.66.153.77 origin.warframe.com

@@ -11,6 +11,7 @@
       alsa-tools
       alsa-utils
       aliyunpan
+      archivebox
       bandwhich
       bc
       btop

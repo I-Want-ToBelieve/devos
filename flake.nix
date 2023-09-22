@@ -113,7 +113,7 @@
 
       channelsConfig = {
         allowUnfree = true;
-        permittedInsecurePackages = ["electron-13.6.9" "electron-19.0.7" "openssl-1.1.1v"];
+        permittedInsecurePackages = ["electron-13.6.9" "electron-19.0.7" "openssl-1.1.1v" "python3.10-django-3.1.14"];
       };
 
       channels = {
@@ -245,7 +245,7 @@
             kde-x11 = [display-managers.sddm desktop-environment.kde];
             kde-wayland = [display-managers.sddm desktop-environment.kde];
             hyprland = [display-managers.greetd];
-            misc = [network nix locale fonts stylixs share-via-wifi samba];
+            misc = [network nix locale fonts stylixs share-via-wifi samba rescue-boot development.android];
             games = [game.steam game.uudeck];
           };
         };
