@@ -12,6 +12,8 @@
       alsa-utils
       aliyunpan
       archivebox
+      ariang
+      motrix
       bandwhich
       bc
       btop

@@ -88,6 +88,8 @@
     # @see https://github.com/nix-community/nix-index-database#usage-in-home-manager
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "latest";
+
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = {
@@ -103,6 +105,7 @@
     rust-overlay,
     nixpkgs,
     stylix,
+    nix-gaming,
     ...
   } @ inputs: let
     configs = import ./configs {};
@@ -188,6 +191,7 @@
               stylix.nixosModules.stylix
 
               agenix.nixosModules.age
+              nix-gaming.nixosModules.steamCompat
               {
                 system.stateVersion = "23.05";
                 system.autoUpgrade.enable = false;
@@ -368,6 +372,7 @@
   nixConfig = {
     extra-experimental-features = "nix-command flakes";
     extra-substituters = [
+      "https://nix-gaming.cachix.org"
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org"
@@ -379,6 +384,7 @@
       "https://nrdxp.cachix.org"
     ];
     extra-trusted-public-keys = [
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
