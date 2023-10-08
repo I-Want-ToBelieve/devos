@@ -8,4 +8,8 @@ final: prev: {
   mpv-iptvplus = prev.callPackage ./applications/video/mpv/scripts/mpv-iptvplus.nix {};
   wallpaper-engine-kde-plugin = prev.plasma5Packages.callPackage ./desktops/plasma-5/3rdparty/addons/wallpaper-engine-kde-plugin.nix {};
   gtk3-nocsd = prev.callPackage ./development/libraries/gtk3-nocsd.nix {};
+
+  lightly-shaders = prev.callPackage ./desktops/plasma-5/3rdparty/addons/lightly-shaders.nix {};
+
+  plasma5-applets-window-appmenu = prev.libsForQt5.callPackage ./desktops/plasma-5/3rdparty/addons/plasma5-applets-window-appmenu.nix {};
 }

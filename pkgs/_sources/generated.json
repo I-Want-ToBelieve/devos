@@ -1,7 +1,7 @@
 {
   "aliyunpan": {
     "cargoLocks": null,
-    "date": "2023-04-30",
+    "date": "2023-10-08",
     "extract": null,
     "name": "aliyunpan",
     "passthru": null,
@@ -13,11 +13,11 @@
       "name": null,
       "owner": "tickstep",
       "repo": "aliyunpan",
-      "rev": "0edf7d0af277d16961f2b366183d74d4a419efda",
-      "sha256": "sha256-Vxr7H6Y77WWMHu7vxLptRlOodK7iidaBTjSivY4WgzI=",
+      "rev": "e91e66aadf6ce7db62ff3552dd905b238e911d00",
+      "sha256": "sha256-Wg5996+obxtnTFZivKdRvaPQXKLzpLsFvCc2QO+0FUc=",
       "type": "github"
     },
-    "version": "0edf7d0af277d16961f2b366183d74d4a419efda"
+    "version": "e91e66aadf6ce7db62ff3552dd905b238e911d00"
   },
   "gtk3-nocsd": {
     "cargoLocks": null,
@@ -38,6 +38,26 @@
       "type": "github"
     },
     "version": "512c2bd866d71def6ffd4d85ca98ae12fe989c62"
+  },
+  "lightly-shaders": {
+    "cargoLocks": null,
+    "date": "2023-03-29",
+    "extract": null,
+    "name": "lightly-shaders",
+    "passthru": null,
+    "pinned": false,
+    "src": {
+      "deepClone": false,
+      "fetchSubmodules": false,
+      "leaveDotGit": false,
+      "name": null,
+      "owner": "a-parhom",
+      "repo": "LightlyShaders",
+      "rev": "cea07c0996373e3a0eaf232f478ebff7a913af8f",
+      "sha256": "sha256-l6UXgU2Xv57Ge9fO6tk5a6+mPG7zrxdm28FAOSRZnA4=",
+      "type": "github"
+    },
+    "version": "cea07c0996373e3a0eaf232f478ebff7a913af8f"
   },
   "manix": {
     "cargoLocks": null,
@@ -79,14 +99,34 @@
     },
     "version": "e4fde04bbad4573b94695df6409edf6e88ecdb3c"
   },
+  "plasma5-applets-window-appmenu": {
+    "cargoLocks": null,
+    "date": "2022-06-27",
+    "extract": null,
+    "name": "plasma5-applets-window-appmenu",
+    "passthru": null,
+    "pinned": false,
+    "src": {
+      "deepClone": false,
+      "fetchSubmodules": false,
+      "leaveDotGit": false,
+      "name": null,
+      "owner": "psifidotos",
+      "repo": "applet-window-appmenu",
+      "rev": "1de99c93b0004b80898081a1acfd1e0be807326a",
+      "sha256": "sha256-PLlZ2qgdge8o1mZOiPOXSmTQv1r34IUmWTmYFGEzNTI=",
+      "type": "github"
+    },
+    "version": "1de99c93b0004b80898081a1acfd1e0be807326a"
+  },
   "swhkd": {
     "cargoLocks": {
       "Cargo.lock": [
-        "./swhkd-2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526/Cargo.lock",
+        "./swhkd-111677251a649bd65cc036bca07ff7117696b1df/Cargo.lock",
         {}
       ]
     },
-    "date": "2023-07-29",
+    "date": "2023-09-22",
     "extract": null,
     "name": "swhkd",
     "passthru": null,
@@ -98,11 +138,11 @@
       "name": null,
       "owner": "waycrate",
       "repo": "swhkd",
-      "rev": "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526",
-      "sha256": "sha256-6kTRAUP///EwIkF1QkQByHqHW55u2L2Gv3c+B5z3e5U=",
+      "rev": "111677251a649bd65cc036bca07ff7117696b1df",
+      "sha256": "sha256-LxeLI7Sa3pcjW69YKDn49C91yDpRL9Vayx8ylA0XasM=",
       "type": "github"
     },
-    "version": "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526"
+    "version": "111677251a649bd65cc036bca07ff7117696b1df"
   },
   "wallpaper-engine-kde-plugin": {
     "cargoLocks": null,

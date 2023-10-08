@@ -74,7 +74,7 @@
   };
 
   gtk = {
-    enable = true;
+    enable = false;
     # gtk3.extraCss = ''
     #   .titlebar, .css, headerbar{
     #     background-image:none;

@@ -18,7 +18,7 @@
       bind --erase \ct
     '';
     shellAliases = {
-      ls = "exa --sort type";
+      ls = "eza --sort type";
       l = "ls -la";
       lt = "ls --tree";
       ra = "joshuto";

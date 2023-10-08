@@ -7,15 +7,15 @@
 }: {
   aliyunpan = {
     pname = "aliyunpan";
-    version = "0edf7d0af277d16961f2b366183d74d4a419efda";
+    version = "e91e66aadf6ce7db62ff3552dd905b238e911d00";
     src = fetchFromGitHub {
       owner = "tickstep";
       repo = "aliyunpan";
-      rev = "0edf7d0af277d16961f2b366183d74d4a419efda";
+      rev = "e91e66aadf6ce7db62ff3552dd905b238e911d00";
       fetchSubmodules = false;
-      sha256 = "sha256-Vxr7H6Y77WWMHu7vxLptRlOodK7iidaBTjSivY4WgzI=";
+      sha256 = "sha256-Wg5996+obxtnTFZivKdRvaPQXKLzpLsFvCc2QO+0FUc=";
     };
-    date = "2023-04-30";
+    date = "2023-10-08";
   };
   gtk3-nocsd = {
     pname = "gtk3-nocsd";
@@ -28,6 +28,18 @@
       sha256 = "sha256-BOsQqxaVdC5O6EnB3KZinKSj0U5mCcX8HSjRmSBUFks=";
     };
     date = "2021-06-23";
+  };
+  lightly-shaders = {
+    pname = "lightly-shaders";
+    version = "cea07c0996373e3a0eaf232f478ebff7a913af8f";
+    src = fetchFromGitHub {
+      owner = "a-parhom";
+      repo = "LightlyShaders";
+      rev = "cea07c0996373e3a0eaf232f478ebff7a913af8f";
+      fetchSubmodules = false;
+      sha256 = "sha256-l6UXgU2Xv57Ge9fO6tk5a6+mPG7zrxdm28FAOSRZnA4=";
+    };
+    date = "2023-03-29";
   };
   manix = {
     pname = "manix";
@@ -53,22 +65,34 @@
     };
     date = "2023-01-04";
   };
+  plasma5-applets-window-appmenu = {
+    pname = "plasma5-applets-window-appmenu";
+    version = "1de99c93b0004b80898081a1acfd1e0be807326a";
+    src = fetchFromGitHub {
+      owner = "psifidotos";
+      repo = "applet-window-appmenu";
+      rev = "1de99c93b0004b80898081a1acfd1e0be807326a";
+      fetchSubmodules = false;
+      sha256 = "sha256-PLlZ2qgdge8o1mZOiPOXSmTQv1r34IUmWTmYFGEzNTI=";
+    };
+    date = "2022-06-27";
+  };
   swhkd = {
     pname = "swhkd";
-    version = "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526";
+    version = "111677251a649bd65cc036bca07ff7117696b1df";
     src = fetchFromGitHub {
       owner = "waycrate";
       repo = "swhkd";
-      rev = "2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526";
+      rev = "111677251a649bd65cc036bca07ff7117696b1df";
       fetchSubmodules = false;
-      sha256 = "sha256-6kTRAUP///EwIkF1QkQByHqHW55u2L2Gv3c+B5z3e5U=";
+      sha256 = "sha256-LxeLI7Sa3pcjW69YKDn49C91yDpRL9Vayx8ylA0XasM=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./swhkd-2e6f091817be5f6ebf837f8fc1cdf1e54f0b3526/Cargo.lock;
+      lockFile = ./swhkd-111677251a649bd65cc036bca07ff7117696b1df/Cargo.lock;
       outputHashes = {
       };
     };
-    date = "2023-07-29";
+    date = "2023-09-22";
   };
   wallpaper-engine-kde-plugin = {
     pname = "wallpaper-engine-kde-plugin";

@@ -1,6 +1,6 @@
 {
   stdenv,
-  pkgconfig,
+  pkg-config,
   gtk3,
   gobject-introspection,
   sources,
@@ -16,7 +16,7 @@ in
     ];
 
     nativeBuildInputs = [
-      pkgconfig
+      pkg-config
     ];
 
     makeFlags = [
