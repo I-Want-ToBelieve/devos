@@ -12,7 +12,6 @@
   xrandr,
   libSM,
   plasma-workspace,
-  unstableGitUpdater,
   sources,
 }: let
   inherit (sources.plasma5-applets-window-appmenu) pname src version;
@@ -33,10 +32,6 @@ in
       libSM
       plasma-workspace
     ];
-
-    passthru = {
-      updateScript = unstableGitUpdater {};
-    };
 
     meta = with lib; {
       description = "Plasma 5 applet in order to show the window appmenu";

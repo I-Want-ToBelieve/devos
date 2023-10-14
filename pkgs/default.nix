@@ -11,5 +11,5 @@ final: prev: {
 
   lightly-shaders = prev.callPackage ./desktops/plasma-5/3rdparty/addons/lightly-shaders.nix {};
 
-  plasma5-applets-window-appmenu = prev.libsForQt5.callPackage ./desktops/plasma-5/3rdparty/addons/plasma5-applets-window-appmenu.nix {};
+  plasma5-applets-window-appmenu = prev.plasma5Packages.callPackage ./desktops/plasma-5/3rdparty/addons/plasma5-applets-window-appmenu.nix {};
 }

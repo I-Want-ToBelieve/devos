@@ -26,6 +26,15 @@
     };
   };
 
+  users.groups.input.members = ["i.want.to.believe"];
+
+  services.udev.extraRules = ''
+    Sunshine
+    KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
+  '';
+
+  services.sunshine.enable = true;
+
   # amd gpu
   boot.blacklistedKernelModules = ["nouveau" "nvidia"];
   systemd.tmpfiles.rules = [
@@ -45,6 +54,10 @@
     };
 
     opengl = {
+      enable = true;
+    };
+
+    steam-hardware = {
       enable = true;
     };
 

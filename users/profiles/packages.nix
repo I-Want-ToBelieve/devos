@@ -20,6 +20,7 @@
       bottom
       cairo
       cached-nix-shell
+      cachix
       cinnamon.nemo
       coreutils
       dconf
@@ -68,8 +69,10 @@
       netease-cloud-music-gtk
       nil
       nodejs
+      nix-init
       obinskit
       openssl
+
       pamixer
       piper
       psmisc
@@ -80,6 +83,7 @@
       rsync
       scrcpy
       scream
+
       todo
       tdrop
       thefuck

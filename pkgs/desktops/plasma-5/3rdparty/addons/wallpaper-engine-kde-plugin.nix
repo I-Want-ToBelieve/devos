@@ -25,6 +25,17 @@ in
 
     buildInputs = [
       pkgs.gst_all_1.gst-libav
+      plasma-framework
+      mpv
+      qtdeclarative
+      qtx11extras
+      lz4
+      vulkan-headers
+      vulkan-tools
+      vulkan-loader
+    ];
+
+    propagatedBuildInputs = [
       pkgs.libsForQt5.qt5.qtwebsockets
       pkgs.libsForQt5.qt5.qtwebchannel
       (
@@ -35,13 +46,5 @@ in
             # other python packages
           ])
       )
-      plasma-framework
-      mpv
-      qtdeclarative
-      qtx11extras
-      lz4
-      vulkan-headers
-      vulkan-tools
-      vulkan-loader
     ];
   }

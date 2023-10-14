@@ -90,6 +90,9 @@
     nix-index-database.inputs.nixpkgs.follows = "latest";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
+
+    devenv.url = "github:cachix/devenv";
+    xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs = {
@@ -106,6 +109,7 @@
     nixpkgs,
     stylix,
     nix-gaming,
+    devenv,
     ...
   } @ inputs: let
     configs = import ./configs {};
@@ -189,6 +193,22 @@
               home-manager.nixosModules.home-manager
 
               stylix.nixosModules.stylix
+
+              inputs.xremap-flake.nixosModules.default
+              {
+                services.xremap = {
+                  userName = "i.want.to.believe"; # run as a systemd service in alice
+                  serviceMode = "user"; # run xremap as user
+                  config = {
+                    keymap = {
+                      name = "Global";
+                      remap = {
+                        "KEY_W" = ["KEY_W" "Shift_R"];
+                      };
+                    };
+                  };
+                };
+              }
 
               agenix.nixosModules.age
               nix-gaming.nixosModules.steamCompat
@@ -382,6 +402,7 @@
       "https://helix.cachix.org"
       "https://hyprland.cachix.org"
       "https://nrdxp.cachix.org"
+      "https://devenv.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
@@ -392,6 +413,7 @@
       "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4="
+      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
     ];
   };
 }
