@@ -6,7 +6,7 @@
 }: let
   github520 = pkgs.fetchurl {
     url = "https://raw.hellogithub.com/hosts";
-    sha256 = "sha256-LkUCYDlToAzrETcIspli9DwL7a4p1W2QfXAssv+sOsU=";
+    sha256 = "sha256-psJcgVbJXO2KsMZothusL5gRz39+3t4HfU2WQlchlDM=";
   };
 in {
   networking = {

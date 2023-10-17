@@ -3,17 +3,16 @@
   lib,
   pkgs,
   ...
-}:
-with lib; let
+}: let
   cfg = config.services.sunshine;
 in {
   options = {
     services.sunshine = {
-      enable = mkEnableOption (mdDoc "Sunshine");
+      enable = lib.mkEnableOption (lib.mdDoc "Sunshine");
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     security.wrappers.sunshine = {
       owner = "root";
       group = "root";

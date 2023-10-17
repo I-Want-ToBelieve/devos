@@ -21,7 +21,7 @@
       cairo
       cached-nix-shell
       cachix
-      cinnamon.nemo
+
       coreutils
       dconf
       ddcutil
